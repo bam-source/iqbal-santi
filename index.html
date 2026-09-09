@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Undangan Pernikahan Digital - Iqbal & Santi. Senin, 21 Desember 2026.">
+  <meta name="theme-color" content="#DCEBF3">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Undangan Pernikahan - Iqbal & Santi">
+  <meta property="og:description" content="Kami mengundang Anda untuk hadir di hari bahagia kami. Senin, 21 Desember 2026.">
+  <meta property="og:image" content="./assets/gallery/og-image.jpg">
+  <meta property="og:url" content="./">
+  <meta property="og:site_name" content="Iqbal & Santi Wedding">
+
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+
+  <title>Undangan Pernikahan - Iqbal & Santi</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- ==================== MUSIC TOGGLE ==================== -->
+  <button class="music-toggle" id="musicToggle" aria-label="Nyalakan/Matikan Musik" title="Nyalakan/Matikan Musik">
+    <svg class="music-icon music-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M9 18V5l12-2v13"/>
+      <circle cx="6" cy="18" r="3"/>
+      <circle cx="18" cy="16" r="3"/>
+    </svg>
+    <svg class="music-icon music-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+      <path d="M9 18V5l12-2v13"/>
+      <circle cx="6" cy="18" r="3"/>
+      <circle cx="18" cy="16" r="3"/>
+      <line x1="1" y1="1" x2="23" y2="23"/>
+    </svg>
+  </button>
+
+  <!-- ==================== OPENING COVER ==================== -->
+  <section id="cover" class="cover" aria-label="Cover Undangan">
+    <!-- Background botanical silhouette layer -->
+    <div class="botanical-bg" aria-hidden="true">
+      <svg viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;opacity:0.08">
+        <path d="M100 500 Q150 400 200 450 Q250 500 300 400 Q350 300 400 350 Q450 400 500 300 Q550 200 600 250 Q650 300 700 200" stroke="#8FA99E" stroke-width="3" fill="none"/>
+        <path d="M50 400 Q100 350 150 380 Q200 410 250 350 Q300 290 350 320 Q400 350 450 280 Q500 210 550 240" stroke="#D4C490" stroke-width="2" fill="none"/>
+        <path d="M150 550 Q200 480 250 520 Q300 560 350 480 Q400 400 450 440" stroke="#E8B4B4" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- Decorative floral corners - Level 1 Hero -->
+    <div class="floral-corner floral-corner--tl" aria-hidden="true">
+      <svg viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 360 C20 360, 40 250, 90 180 C140 110, 210 80, 360 20" stroke="#8FA99E" stroke-width="3" fill="none" opacity="0.8"/>
+        <path d="M50 330 C50 330, 70 220, 120 160 C170 100, 230 85, 320 55" stroke="#D4C490" stroke-width="2" fill="none" opacity="0.6"/>
+        <circle cx="120" cy="170" r="55" fill="#B8D4E3" opacity="0.5"/>
+        <circle cx="120" cy="170" r="42" fill="#E8D5E8" opacity="0.45"/>
+        <circle cx="120" cy="170" r="30" fill="#F5E6E6" opacity="0.4"/>
+        <circle cx="120" cy="170" r="18" fill="#E8B4B4" opacity="0.55"/>
+        <path d="M105 130 Q120 70 135 130 Q170 100 150 140 Q185 150 150 165 Q185 185 135 175 Q120 215 105 175 Q70 185 90 165 Q55 150 90 140 Q70 100 105 130Z" fill="#D4C490" opacity="0.45"/>
+        <circle cx="200" cy="100" r="40" fill="#B8D4E3" opacity="0.45"/>
+        <circle cx="200" cy="100" r="28" fill="#E8D5E8" opacity="0.4"/>
+        <circle cx="200" cy="100" r="16" fill="#E8B4B4" opacity="0.5"/>
+        <path d="M60 300 Q75 275 90 300 Q105 325 75 318 Q45 310 60 300Z" fill="#8FA99E" opacity="0.5"/>
+        <path d="M150 130 Q165 105 180 130 Q195 155 165 148 Q135 140 150 130Z" fill="#8FA99E" opacity="0.45"/>
+        <circle cx="280" cy="55" r="8" fill="#E8B4B4" opacity="0.5"/>
+        <circle cx="180" cy="140" r="6" fill="#B8D4E3" opacity="0.45"/>
+        <circle cx="90" cy="220" r="7" fill="#D4C490" opacity="0.45"/>
+      </svg>
+    </div>
+    <div class="floral-corner floral-corner--tr" aria-hidden="true">
+      <svg viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M360 360 C360 360, 340 250, 290 180 C240 110, 170 80, 20 20" stroke="#8FA99E" stroke-width="3" fill="none" opacity="0.8"/>
+        <path d="M330 330 C330 330, 310 220, 260 160 C210 100, 150 85, 60 55" stroke="#D4C490" stroke-width="2" fill="none" opacity="0.6"/>
+        <circle cx="260" cy="170" r="55" fill="#B8D4E3" opacity="0.5"/>
+        <circle cx="260" cy="170" r="42" fill="#E8D5E8" opacity="0.45"/>
+        <circle cx="260" cy="170" r="30" fill="#F5E6E6" opacity="0.4"/>
+        <circle cx="260" cy="170" r="18" fill="#E8B4B4" opacity="0.55"/>
+        <path d="M245 130 Q260 70 275 130 Q310 100 290 140 Q325 150 290 165 Q325 185 275 175 Q260 215 245 175 Q210 185 230 165 Q195 150 230 140 Q210 100 245 130Z" fill="#D4C490" opacity="0.45"/>
+        <circle cx="180" cy="100" r="40" fill="#B8D4E3" opacity="0.45"/>
+        <circle cx="180" cy="100" r="28" fill="#E8D5E8" opacity="0.4"/>
+        <circle cx="180" cy="100" r="16" fill="#E8B4B4" opacity="0.5"/>
+        <path d="M320 300 Q305 275 290 300 Q275 325 305 318 Q335 310 320 300Z" fill="#8FA99E" opacity="0.5"/>
+        <path d="M230 130 Q215 105 200 130 Q185 155 215 148 Q245 140 230 130Z" fill="#8FA99E" opacity="0.45"/>
+        <circle cx="100" cy="55" r="8" fill="#E8B4B4" opacity="0.5"/>
+        <circle cx="200" cy="140" r="6" fill="#B8D4E3" opacity="0.45"/>
+        <circle cx="290" cy="220" r="7" fill="#D4C490" opacity="0.45"/>
+      </svg>
+    </div>
+    <div class="floral-corner floral-corner--bl" aria-hidden="true">
+      <svg viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 20 C20 20, 40 130, 90 200 C140 270, 210 300, 360 360" stroke="#8FA99E" stroke-width="3" fill="none" opacity="0.8"/>
+        <circle cx="120" cy="210" r="50" fill="#B8D4E3" opacity="0.5"/>
+        <circle cx="120" cy="210" r="38" fill="#E8D5E8" opacity="0.45"/>
+        <circle cx="120" cy="210" r="26" fill="#F5E6E6" opacity="0.4"/>
+        <circle cx="120" cy="210" r="15" fill="#E8B4B4" opacity="0.55"/>
+        <path d="M70 120 Q85 95 100 120 Q115 145 85 138 Q55 130 70 120Z" fill="#8FA99E" opacity="0.5"/>
+        <circle cx="280" cy="340" r="7" fill="#E8B4B4" opacity="0.5"/>
+        <circle cx="80" cy="160" r="6" fill="#B8D4E3" opacity="0.45"/>
+      </svg>
+    </div>
+    <div class="floral-corner floral-corner--br" aria-hidden="true">
+      <svg viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M360 20 C360 20, 340 130, 290 200 C240 270, 170 300, 20 360" stroke="#8FA99E" stroke-width="3" fill="none" opacity="0.8"/>
+        <circle cx="260" cy="210" r="50" fill="#B8D4E3" opacity="0.5"/>
+        <circle cx="260" cy="210" r="38" fill="#E8D5E8" opacity="0.45"/>
+        <circle cx="260" cy="210" r="26" fill="#F5E6E6" opacity="0.4"/>
+        <circle cx="260" cy="210" r="15" fill="#E8B4B4" opacity="0.55"/>
+        <path d="M310 120 Q295 95 280 120 Q265 145 295 138 Q325 130 310 120Z" fill="#8FA99E" opacity="0.5"/>
+        <circle cx="100" cy="340" r="7" fill="#E8B4B4" opacity="0.5"/>
+        <circle cx="300" cy="160" r="6" fill="#B8D4E3" opacity="0.45"/>
+      </svg>
+    </div>
+
+    <!-- Floating botanical branches -->
+    <div class="floral floral--right floral--hero floral--animated-sway" style="top:25%;right:-50px;width:200px;height:300px;opacity:0.5;" aria-hidden="true">
+      <svg viewBox="0 0 150 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M75 240 Q75 170 65 110 Q55 50 75 10" stroke="#8FA99E" stroke-width="2.5" fill="none" opacity="0.7"/>
+        <circle cx="52" cy="140" r="12" fill="#B8D4E3" opacity="0.5"/>
+        <circle cx="52" cy="140" r="7" fill="#E8D5E8" opacity="0.45"/>
+        <circle cx="60" cy="80" r="10" fill="#E8B4B4" opacity="0.45"/>
+        <path d="M45 160 Q55 140 65 160 Q75 180 55 175 Q35 170 45 160Z" fill="#8FA99E" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="floral floral--left floral--hero floral--animated-sway" style="bottom:20%;left:-50px;width:180px;height:280px;opacity:0.5;" aria-hidden="true">
+      <svg viewBox="0 0 150 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M75 240 Q75 170 85 110 Q95 50 75 10" stroke="#D4C490" stroke-width="2.5" fill="none" opacity="0.7"/>
+        <circle cx="98" cy="140" r="12" fill="#B8D4E3" opacity="0.5"/>
+        <circle cx="98" cy="140" r="7" fill="#E8D5E8" opacity="0.45"/>
+        <circle cx="90" cy="80" r="10" fill="#E8B4B4" opacity="0.45"/>
+        <path d="M105 160 Q95 140 85 160 Q75 180 95 175 Q115 170 105 160Z" fill="#8FA99E" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <!-- COVER CONTENT (text + envelope + text) -->
+    <div class="cover-content">
+      <!-- Teks atas -->
+      <div class="cover-top-text">
+        <p class="cover-invite">Undangan Pernikahan</p>
+        <p class="cover-date">21 · 12 · 2026</p>
+      </div>
+
+      <!-- ENVELOPE STRUCTURE -->
+      <div class="envelope-wrapper" id="envelopeWrapper">
+        <!-- Envelope back shadow -->
+        <div class="envelope-shadow" aria-hidden="true"></div>
+
+        <!-- Inner invitation card (hidden inside envelope) -->
+        <div class="envelope-card" id="envelopeCard" aria-hidden="true">
+          <div class="envelope-card-inner">
+            <div class="envelope-card-ornament" aria-hidden="true">
+              <svg viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 15 Q50 0 100 15 Q150 30 200 15" stroke="#D4C490" stroke-width="1.5" fill="none"/>
+                <circle cx="100" cy="15" r="4" fill="#D4C490" opacity="0.6"/>
+              </svg>
+            </div>
+            <p class="envelope-card-label">Undangan Pernikahan</p>
+            <p class="envelope-card-names" id="envelopeCardNames"></p>
+            <div class="envelope-card-ornament envelope-card-ornament--bottom" aria-hidden="true">
+              <svg viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 15 Q50 30 100 15 Q150 0 200 15" stroke="#D4C490" stroke-width="1.5" fill="none"/>
+                <circle cx="100" cy="15" r="4" fill="#D4C490" opacity="0.6"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Envelope body -->
+        <div class="envelope" id="envelope">
+          <!-- Envelope front face -->
+          <div class="envelope-front">
+            <div class="envelope-front-texture" aria-hidden="true"></div>
+            <div class="envelope-front-content">
+              <!-- Wax seal only -->
+              <button class="envelope-seal" id="openInvitation" aria-label="Buka Undangan">
+                <div class="envelope-seal-outer">
+                  <div class="envelope-seal-inner">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </div>
+                </div>
+                <span class="envelope-seal-label">Buka Undangan</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Envelope flap (opens upward) -->
+          <div class="envelope-flap" id="envelopeFlap">
+            <div class="envelope-flap-inner"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teks bawah -->
+      <div class="cover-bottom-text">
+        <span class="cover-quote-mark" aria-hidden="true">&ldquo;</span>
+        <p class="cover-invite-text">Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami mengundang Anda untuk menghadiri pernikahan kami</p>
+        <span class="cover-quote-mark cover-quote-mark--end" aria-hidden="true">&rdquo;</span>
+      </div>
+    </div>
+
+    <!-- Floating petals -->
+    <div class="floating-petals" id="floatingPetals" aria-hidden="true"></div>
+  </section>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <div class="overlay" id="overlay"></div>
+  <main class="main-content" id="mainContent">
+
+    <!-- ==================== DOA & PEMBUKA SECTION ==================== -->
+    <section id="doaPembuka" class="section section--doa" aria-label="Doa Pembuka">
+      <div class="section-florals" aria-hidden="true">
+        <div class="floral floral--tl floral--supporting floral--animated" style="width:180px;height:180px;opacity:0.4;">
+          <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 152 Q20 100 55 70 Q90 40 130 22 Q150 12 155 15" stroke="#8FA99E" stroke-width="2" fill="none" opacity="0.7"/>
+            <circle cx="58" cy="68" r="18" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="58" cy="68" r="12" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="58" cy="68" r="7" fill="#E8B4B4" opacity="0.5"/>
+            <path d="M50 52 Q58 32 66 52 Q80 42 72 58 Q86 62 72 68 Q80 80 66 72 Q58 88 50 72 Q36 80 44 68 Q30 62 44 58 Q36 42 50 52Z" fill="#D4C490" opacity="0.45"/>
+            <path d="M38 105 Q50 92 62 105 Q74 118 50 112 Q26 106 38 105Z" fill="#8FA99E" opacity="0.5"/>
+            <circle cx="110" cy="30" r="5" fill="#E8B4B4" opacity="0.45"/>
+          </svg>
+        </div>
+        <div class="floral floral--br floral--supporting floral--animated" style="width:180px;height:180px;opacity:0.4;">
+          <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M152 8 Q140 60 105 90 Q70 120 30 138 Q10 148 5 145" stroke="#8FA99E" stroke-width="2" fill="none" opacity="0.7"/>
+            <circle cx="102" cy="92" r="18" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="102" cy="92" r="12" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="102" cy="92" r="7" fill="#E8B4B4" opacity="0.5"/>
+            <path d="M94 76 Q102 56 110 76 Q124 66 116 82 Q130 86 116 92 Q124 104 110 96 Q102 112 94 96 Q80 104 88 92 Q74 86 88 82 Q80 66 94 76Z" fill="#D4C490" opacity="0.45"/>
+            <path d="M120 55 Q108 42 96 55 Q84 68 108 62 Q132 56 120 55Z" fill="#8FA99E" opacity="0.5"/>
+            <circle cx="50" cy="130" r="5" fill="#E8B4B4" opacity="0.45"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="doa-pembuka-content">
+          <div class="doa-pembuka-doa reveal">
+            <div class="doa-ornament" aria-hidden="true">
+              <svg viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 15 Q50 0 100 15 Q150 30 200 15" stroke="#D4C490" stroke-width="1.5" fill="none"/>
+                <circle cx="100" cy="15" r="4" fill="#D4C490" opacity="0.6"/>
+              </svg>
+            </div>
+            <p class="doa-arabic" id="doaArabic"></p>
+          </div>
+
+          <div class="doa-pembuka-card reveal">
+            <div class="pembuka-ornament" aria-hidden="true">
+              <svg viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 15 Q50 0 100 15 Q150 30 200 15" stroke="#D4C490" stroke-width="1.5" fill="none"/>
+                <circle cx="100" cy="15" r="4" fill="#D4C490" opacity="0.6"/>
+              </svg>
+            </div>
+            <h2 class="doa-pembuka-salam" id="pembukaSalam"></h2>
+            <p class="doa-pembuka-text" id="pembukaText"></p>
+            <p class="doa-pembuka-names" id="pembukaNames"></p>
+            <div class="pembuka-ornament pembuka-ornament--bottom" aria-hidden="true">
+              <svg viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 15 Q50 30 100 15 Q150 0 200 15" stroke="#D4C490" stroke-width="1.5" fill="none"/>
+                <circle cx="100" cy="15" r="4" fill="#D4C490" opacity="0.6"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== MEMPELAI SECTION ==================== -->
+    <section id="mempelai" class="section section--mempelai" aria-label="Mempelai">
+      <!-- Floral framing - Level 1 Hero (ENHANCED) -->
+      <div class="section-florals" aria-hidden="true">
+        <!-- Top left floral cluster -->
+        <div class="floral floral--tl floral--hero floral--animated" style="width:280px;height:280px;opacity:0.45;">
+          <svg viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 250 Q25 180 60 130 Q95 80 150 45 Q200 10 250 5" stroke="#8FA99E" stroke-width="2.5" fill="none" opacity="0.75"/>
+            <path d="M30 230 Q45 160 80 115 Q115 70 165 40 Q210 15 240 10" stroke="#D4C490" stroke-width="1.8" fill="none" opacity="0.6"/>
+            <circle cx="75" cy="120" r="35" fill="#B8D4E3" opacity="0.55"/>
+            <circle cx="75" cy="120" r="25" fill="#E8D5E8" opacity="0.5"/>
+            <circle cx="75" cy="120" r="15" fill="#E8B4B4" opacity="0.55"/>
+            <path d="M65 98 Q75 65 85 98 Q108 82 95 108 Q118 115 95 125 Q108 148 85 138 Q75 165 65 138 Q42 148 55 125 Q32 115 55 108 Q42 82 65 98Z" fill="#D4C490" opacity="0.5"/>
+            <circle cx="150" cy="65" r="22" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="150" cy="65" r="14" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="150" cy="65" r="8" fill="#E8B4B4" opacity="0.5"/>
+            <path d="M142 50 Q150 30 158 50 Q172 40 165 55 Q178 60 165 65 Q172 78 158 70 Q150 85 142 70 Q128 78 135 65 Q122 60 135 55 Q128 40 142 50Z" fill="#D4C490" opacity="0.45"/>
+            <path d="M50 185 Q65 165 80 185 Q95 205 65 200 Q35 195 50 185Z" fill="#8FA99E" opacity="0.55"/>
+            <path d="M110 90 Q125 70 140 90 Q155 110 125 105 Q95 100 110 90Z" fill="#8FA99E" opacity="0.5"/>
+            <circle cx="200" cy="35" r="6" fill="#E8B4B4" opacity="0.5"/>
+            <circle cx="120" cy="100" r="5" fill="#B8D4E3" opacity="0.45"/>
+            <circle cx="60" cy="170" r="5" fill="#D4C490" opacity="0.45"/>
+          </svg>
+        </div>
+        <!-- Bottom right floral cluster -->
+        <div class="floral floral--br floral--hero floral--animated" style="width:280px;height:280px;opacity:0.45;">
+          <svg viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M250 10 Q235 80 200 130 Q165 180 110 215 Q60 250 10 255" stroke="#8FA99E" stroke-width="2.5" fill="none" opacity="0.75"/>
+            <path d="M230 30 Q215 100 180 145 Q145 190 95 220 Q50 245 20 250" stroke="#D4C490" stroke-width="1.8" fill="none" opacity="0.6"/>
+            <circle cx="185" cy="140" r="35" fill="#B8D4E3" opacity="0.55"/>
+            <circle cx="185" cy="140" r="25" fill="#E8D5E8" opacity="0.5"/>
+            <circle cx="185" cy="140" r="15" fill="#E8B4B4" opacity="0.55"/>
+            <path d="M175 118 Q185 85 195 118 Q218 102 205 128 Q228 135 205 145 Q218 168 195 158 Q185 185 175 158 Q152 168 165 145 Q142 135 165 128 Q152 102 175 118Z" fill="#D4C490" opacity="0.5"/>
+            <circle cx="110" cy="195" r="22" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="110" cy="195" r="14" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="110" cy="195" r="8" fill="#E8B4B4" opacity="0.5"/>
+            <path d="M102 180 Q110 160 118 180 Q132 170 125 185 Q138 190 125 195 Q132 208 118 200 Q110 215 102 200 Q88 208 95 195 Q82 190 95 185 Q88 170 102 180Z" fill="#D4C490" opacity="0.45"/>
+            <path d="M210 75 Q195 55 180 75 Q165 95 195 90 Q225 85 210 75Z" fill="#8FA99E" opacity="0.55"/>
+            <path d="M150 170 Q135 150 120 170 Q105 190 135 185 Q165 180 150 170Z" fill="#8FA99E" opacity="0.5"/>
+            <circle cx="60" cy="225" r="6" fill="#E8B4B4" opacity="0.5"/>
+            <circle cx="140" cy="160" r="5" fill="#B8D4E3" opacity="0.45"/>
+          </svg>
+        </div>
+        <!-- Left side branch -->
+        <div class="floral floral--left floral--supporting floral--animated-sway" style="top:35%;left:-35px;width:140px;height:220px;opacity:0.4;">
+          <svg viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M60 190 Q60 140 52 95 Q44 50 60 10" stroke="#8FA99E" stroke-width="2" fill="none" opacity="0.65"/>
+            <path d="M52 130 Q30 118 40 90 Q50 62 52 90" stroke="#8FA99E" stroke-width="1.2" fill="none" opacity="0.5"/>
+            <path d="M56 80 Q34 68 44 40 Q54 12 56 40" stroke="#8FA99E" stroke-width="1.2" fill="none" opacity="0.5"/>
+            <circle cx="42" cy="92" r="10" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="42" cy="92" r="6" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="48" cy="42" r="8" fill="#E8B4B4" opacity="0.45"/>
+            <circle cx="48" cy="42" r="4" fill="#F5E6E6" opacity="0.4"/>
+            <path d="M32 110 Q42 95 52 110 Q62 125 42 120 Q22 115 32 110Z" fill="#8FA99E" opacity="0.5"/>
+            <path d="M45 65 Q55 50 65 65 Q75 80 55 75 Q35 70 45 65Z" fill="#8FA99E" opacity="0.45"/>
+          </svg>
+        </div>
+        <!-- Right side branch -->
+        <div class="floral floral--right floral--supporting floral--animated-sway" style="top:35%;right:-35px;width:140px;height:220px;opacity:0.4;">
+          <svg viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M60 190 Q60 140 68 95 Q76 50 60 10" stroke="#D4C490" stroke-width="2" fill="none" opacity="0.65"/>
+            <path d="M68 130 Q90 118 80 90 Q70 62 68 90" stroke="#D4C490" stroke-width="1.2" fill="none" opacity="0.5"/>
+            <path d="M64 80 Q86 68 76 40 Q66 12 64 40" stroke="#D4C490" stroke-width="1.2" fill="none" opacity="0.5"/>
+            <circle cx="78" cy="92" r="10" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="78" cy="92" r="6" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="72" cy="42" r="8" fill="#E8B4B4" opacity="0.45"/>
+            <circle cx="72" cy="42" r="4" fill="#F5E6E6" opacity="0.4"/>
+            <path d="M88 110 Q78 95 68 110 Q58 125 78 120 Q98 115 88 110Z" fill="#8FA99E" opacity="0.5"/>
+            <path d="M75 65 Q65 50 55 65 Q45 80 65 75 Q85 70 75 65Z" fill="#8FA99E" opacity="0.45"/>
+          </svg>
+        </div>
+        <!-- Top center small flowers -->
+        <div class="floral floral--top floral--micro floral--animated" style="width:120px;height:80px;opacity:0.35;">
+          <svg viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="10" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="30" cy="30" r="6" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="50" cy="25" r="8" fill="#E8B4B4" opacity="0.45"/>
+            <circle cx="70" cy="30" r="10" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="70" cy="30" r="6" fill="#E8D5E8" opacity="0.45"/>
+            <path d="M20 45 Q30 35 40 45 Q50 55 30 50 Q10 45 20 45Z" fill="#8FA99E" opacity="0.5"/>
+            <path d="M60 45 Q70 35 80 45 Q90 55 70 50 Q50 45 60 45Z" fill="#8FA99E" opacity="0.5"/>
+          </svg>
+        </div>
+        <!-- Bottom center leaves -->
+        <div class="floral floral--bottom floral--micro floral--animated-sway" style="width:120px;height:80px;opacity:0.35;">
+          <svg viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 15 Q30 5 40 15 Q50 25 30 20 Q10 15 20 15Z" fill="#8FA99E" opacity="0.55"/>
+            <path d="M60 15 Q70 5 80 15 Q90 25 70 20 Q50 15 60 15Z" fill="#8FA99E" opacity="0.55"/>
+            <circle cx="30" cy="40" r="6" fill="#E8B4B4" opacity="0.45"/>
+            <circle cx="50" cy="35" r="5" fill="#B8D4E3" opacity="0.4"/>
+            <circle cx="70" cy="40" r="6" fill="#D4C490" opacity="0.45"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <p class="section-label">Mempelai</p>
+          <h2 class="section-title">Pasangan Bahagia</h2>
+          <div class="floral-divider" aria-hidden="true">
+            <svg viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 15 Q50 0 100 15 Q150 30 200 15" stroke="#D4C490" stroke-width="1.5" fill="none"/>
+              <circle cx="100" cy="15" r="5" fill="#D4C490" opacity="0.6"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="couple-cards">
+          <!-- Groom -->
+          <div class="couple-card reveal">
+            <div class="couple-photo-wrap">
+              <div class="couple-photo" id="groomPhoto" role="img" aria-label="Foto Mempelai Pria">
+                <div class="couple-photo-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#A9BBB5" stroke-width="1.5" width="48" height="48">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="couple-photo-deco" aria-hidden="true"></div>
+            </div>
+            <p class="couple-role">Mempelai Pria</p>
+            <h3 class="couple-name" id="groomFullName"></h3>
+            <p class="couple-parents" id="groomParents"></p>
+            <p class="couple-quote" id="groomQuote"></p>
+          </div>
+
+          <div class="couple-heart reveal" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="#C9B890" opacity="0.6">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+
+          <!-- Bride -->
+          <div class="couple-card reveal">
+            <div class="couple-photo-wrap">
+              <div class="couple-photo" id="bridePhoto" role="img" aria-label="Foto Mempelai Wanita">
+                <div class="couple-photo-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#A9BBB5" stroke-width="1.5" width="48" height="48">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="couple-photo-deco" aria-hidden="true"></div>
+            </div>
+            <p class="couple-role">Mempelai Wanita</p>
+            <h3 class="couple-name" id="brideFullName"></h3>
+            <p class="couple-parents" id="brideParents"></p>
+            <p class="couple-quote" id="brideQuote"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EVENTS SECTION (Countdown + Akad + Intimate Lunch) ==================== -->
+    <section id="events" class="section section--events" aria-label="Waktu & Acara">
+      <!-- Micro floral details -->
+      <div class="section-florals" aria-hidden="true">
+        <!-- Top left floral -->
+        <div class="floral floral--tl floral--micro floral--animated" style="width:100px;height:100px;opacity:0.38;">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 70 Q15 45 30 30 Q45 15 65 8 Q75 5 78 8" stroke="#8FA99E" stroke-width="1.5" fill="none" opacity="0.65"/>
+            <circle cx="32" cy="30" r="10" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="32" cy="30" r="6" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="32" cy="30" r="3" fill="#E8B4B4" opacity="0.5"/>
+            <path d="M26 20 Q32 8 38 20 Q48 14 42 26 Q50 28 42 32 Q48 42 38 36 Q32 45 26 36 Q16 42 22 32 Q14 28 22 26 Q16 14 26 20Z" fill="#D4C490" opacity="0.45"/>
+            <path d="M18 52 Q28 42 38 52 Q48 62 28 58 Q8 54 18 52Z" fill="#8FA99E" opacity="0.5"/>
+            <circle cx="58" cy="15" r="4" fill="#E8B4B4" opacity="0.45"/>
+          </svg>
+        </div>
+        <!-- Bottom right floral -->
+        <div class="floral floral--br floral--micro floral--animated" style="width:100px;height:100px;opacity:0.38;">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M70 10 Q65 35 50 50 Q35 65 15 72 Q5 75 2 72" stroke="#8FA99E" stroke-width="1.5" fill="none" opacity="0.65"/>
+            <circle cx="48" cy="50" r="10" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="48" cy="50" r="6" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="48" cy="50" r="3" fill="#E8B4B4" opacity="0.5"/>
+            <path d="M42 40 Q48 28 54 40 Q64 34 58 46 Q66 48 58 52 Q64 62 54 56 Q48 65 42 56 Q32 62 38 52 Q30 48 38 46 Q30 34 42 40Z" fill="#D4C490" opacity="0.45"/>
+            <path d="M55 28 Q45 18 35 28 Q25 38 45 34 Q65 30 55 28Z" fill="#8FA99E" opacity="0.5"/>
+            <circle cx="22" cy="65" r="4" fill="#E8B4B4" opacity="0.45"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <p class="section-label">Waktu & Acara</p>
+          <h2 class="section-title">Hitung Mundur & Acara</h2>
+          <div class="floral-divider" aria-hidden="true">
+            <svg viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 15 Q50 0 100 15 Q150 30 200 15" stroke="#D4C490" stroke-width="1.5" fill="none"/>
+              <circle cx="100" cy="15" r="5" fill="#D4C490" opacity="0.6"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-section reveal">
+          <p class="countdown-subtitle" id="countdownLabel"></p>
+          <div class="countdown-grid">
+            <div class="countdown-box">
+              <span class="countdown-number" id="countDays">0</span>
+              <span class="countdown-label">Hari</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-number" id="countHours">0</span>
+              <span class="countdown-label">Jam</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-number" id="countMinutes">0</span>
+              <span class="countdown-label">Menit</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-number" id="countSeconds">0</span>
+              <span class="countdown-label">Detik</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="events-divider" aria-hidden="true"></div>
+
+        <!-- Event Cards Wrapper -->
+        <div class="events-cards-wrapper">
+          <!-- Akad Nikah Card -->
+          <div class="event-card reveal">
+          <div class="event-card-header">
+            <div class="event-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3 class="event-title">Akad Nikah</h3>
+          </div>
+          <div class="event-details">
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              <span id="akadDate"></span>
+            </div>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span id="akadTime"></span>
+            </div>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span id="akadVenue"></span>
+            </div>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span id="akadAddress"></span>
+            </div>
+          </div>
+          <a class="event-map-btn" id="akadMap" href="#" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            Lihat Peta
+          </a>
+        </div>
+
+        <!-- Intimate Lunch Card -->
+        <div class="event-card reveal">
+          <div class="event-card-header">
+            <div class="event-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h3 class="event-title">Intimate Lunch</h3>
+          </div>
+          <div class="event-details">
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              <span id="resepsiDate"></span>
+            </div>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span id="resepsiTime"></span>
+            </div>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span id="resepsiVenue"></span>
+            </div>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span id="resepsiAddress"></span>
+            </div>
+          </div>
+          <a class="event-map-btn" id="resepsiMap" href="#" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            Lihat Peta
+          </a>
+        </div>
+        </div>
+      </div>
+
+      <!-- Organic background shape -->
+      <div class="organic-shape organic-shape--1" aria-hidden="true"></div>
+      <div class="organic-shape organic-shape--2" aria-hidden="true"></div>
+    </section>
+
+    <!-- ==================== LOVE STORY SECTION ==================== -->
+    <section id="loveStory" class="section section--story" aria-label="Kisah Cinta">
+      <!-- Botanical timeline decoration (ENHANCED) -->
+      <div class="section-florals" aria-hidden="true">
+        <!-- Top left floral branch -->
+        <div class="floral floral--tl floral--supporting floral--animated-sway" style="width:200px;height:260px;opacity:0.4;">
+          <svg viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M90 230 Q90 160 78 110 Q66 60 90 10" stroke="#8FA99E" stroke-width="2.5" fill="none" opacity="0.7"/>
+            <path d="M78 170 Q50 155 60 120 Q70 85 78 120" stroke="#8FA99E" stroke-width="1.5" fill="none" opacity="0.55"/>
+            <path d="M84 110 Q56 95 66 60 Q76 25 84 60" stroke="#8FA99E" stroke-width="1.5" fill="none" opacity="0.55"/>
+            <path d="M82 65 Q54 50 64 20 Q74 -10 82 20" stroke="#8FA99E" stroke-width="1.2" fill="none" opacity="0.5"/>
+            <circle cx="62" cy="122" r="15" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="62" cy="122" r="10" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="62" cy="122" r="6" fill="#E8B4B4" opacity="0.5"/>
+            <circle cx="68" cy="62" r="12" fill="#E8B4B4" opacity="0.45"/>
+            <circle cx="68" cy="62" r="7" fill="#F5E6E6" opacity="0.4"/>
+            <circle cx="72" cy="25" r="10" fill="#B8D4E3" opacity="0.45"/>
+            <circle cx="72" cy="25" r="6" fill="#E8D5E8" opacity="0.4"/>
+            <path d="M48 145 Q60 130 72 145 Q84 160 60 155 Q36 150 48 145Z" fill="#8FA99E" opacity="0.5"/>
+            <path d="M55 85 Q67 70 79 85 Q91 100 67 95 Q43 90 55 85Z" fill="#8FA99E" opacity="0.45"/>
+            <path d="M60 40 Q72 25 84 40 Q96 55 72 50 Q48 45 60 40Z" fill="#8FA99E" opacity="0.4"/>
+            <circle cx="110" cy="35" r="5" fill="#D4C490" opacity="0.45"/>
+            <circle cx="45" cy="95" r="4" fill="#D4C490" opacity="0.4"/>
+          </svg>
+        </div>
+        <!-- Bottom right floral branch -->
+        <div class="floral floral--br floral--supporting floral--animated-sway" style="width:200px;height:260px;opacity:0.4;">
+          <svg viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M90 10 Q90 80 102 130 Q114 180 90 230" stroke="#D4C490" stroke-width="2.5" fill="none" opacity="0.7"/>
+            <path d="M102 70 Q130 85 120 120 Q110 155 102 120" stroke="#D4C490" stroke-width="1.5" fill="none" opacity="0.55"/>
+            <path d="M96 130 Q124 145 114 180 Q104 215 96 180" stroke="#D4C490" stroke-width="1.5" fill="none" opacity="0.55"/>
+            <path d="M98 175 Q126 190 116 220 Q106 250 98 220" stroke="#D4C490" stroke-width="1.2" fill="none" opacity="0.5"/>
+            <circle cx="118" cy="118" r="15" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="118" cy="118" r="10" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="118" cy="118" r="6" fill="#E8B4B4" opacity="0.5"/>
+            <circle cx="112" cy="178" r="12" fill="#E8B4B4" opacity="0.45"/>
+            <circle cx="112" cy="178" r="7" fill="#F5E6E6" opacity="0.4"/>
+            <circle cx="108" cy="215" r="10" fill="#B8D4E3" opacity="0.45"/>
+            <circle cx="108" cy="215" r="6" fill="#E8D5E8" opacity="0.4"/>
+            <path d="M132 95 Q120 80 108 95 Q96 110 120 105 Q144 100 132 95Z" fill="#8FA99E" opacity="0.5"/>
+            <path d="M125 155 Q113 140 101 155 Q89 170 113 165 Q137 160 125 155Z" fill="#8FA99E" opacity="0.45"/>
+            <path d="M120 200 Q108 185 96 200 Q84 215 108 210 Q132 205 120 200Z" fill="#8FA99E" opacity="0.4"/>
+            <circle cx="70" cy="205" r="5" fill="#D4C490" opacity="0.45"/>
+          </svg>
+        </div>
+        <!-- Left side small branch -->
+        <div class="floral floral--left floral--micro floral--animated-sway" style="top:45%;left:-15px;width:80px;height:140px;opacity:0.35;">
+          <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 110 Q30 70 25 40 Q20 10 30 5" stroke="#8FA99E" stroke-width="1.5" fill="none" opacity="0.6"/>
+            <path d="M25 60 Q12 55 18 40 Q24 25 25 40" stroke="#8FA99E" stroke-width="1" fill="none" opacity="0.5"/>
+            <circle cx="18" cy="42" r="6" fill="#B8D4E3" opacity="0.45"/>
+            <circle cx="18" cy="42" r="3" fill="#E8D5E8" opacity="0.4"/>
+            <path d="M10 55 Q18 45 26 55 Q34 65 18 62 Q2 58 10 55Z" fill="#8FA99E" opacity="0.5"/>
+          </svg>
+        </div>
+        <!-- Right side small branch -->
+        <div class="floral floral--right floral--micro floral--animated-sway" style="top:45%;right:-15px;width:80px;height:140px;opacity:0.35;">
+          <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 110 Q30 70 35 40 Q40 10 30 5" stroke="#D4C490" stroke-width="1.5" fill="none" opacity="0.6"/>
+            <path d="M35 60 Q48 55 42 40 Q36 25 35 40" stroke="#D4C490" stroke-width="1" fill="none" opacity="0.5"/>
+            <circle cx="42" cy="42" r="6" fill="#B8D4E3" opacity="0.45"/>
+            <circle cx="42" cy="42" r="3" fill="#E8D5E8" opacity="0.4"/>
+            <path d="M50 55 Q42 45 34 55 Q26 65 42 62 Q58 58 50 55Z" fill="#8FA99E" opacity="0.5"/>
+          </svg>
+        </div>
+        <!-- Timeline flowers (decorative for timeline line) -->
+        <div class="floral floral--top floral--micro" style="top:20%;left:48%;width:30px;height:30px;opacity:0.32;">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="6" fill="#E8B4B4" opacity="0.5"/>
+            <circle cx="12" cy="12" r="3" fill="#F5E6E6" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="floral floral--top floral--micro" style="top:50%;left:48%;width:28px;height:28px;opacity:0.32;">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="6" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="12" cy="12" r="3" fill="#E8D5E8" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="floral floral--top floral--micro" style="top:80%;left:48%;width:26px;height:26px;opacity:0.32;">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="6" fill="#D4C490" opacity="0.5"/>
+            <circle cx="12" cy="12" r="3" fill="#F5E6E6" opacity="0.4"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <p class="section-label">Kisah Cinta</p>
+          <h2 class="section-title">Perjalanan Cinta Kami</h2>
+          <div class="floral-divider" aria-hidden="true">
+            <svg viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 15 Q50 0 100 15 Q150 30 200 15" stroke="#D4C490" stroke-width="1.5" fill="none"/>
+              <circle cx="100" cy="15" r="5" fill="#D4C490" opacity="0.6"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="timeline" id="timeline" role="list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WEDDING GIFT SECTION ==================== -->
+    <section id="weddingGift" class="section section--gift" aria-label="Hadiah Pernikahan">
+      <!-- Botanical frame with gold accent (ENHANCED) -->
+      <div class="section-florals" aria-hidden="true">
+        <!-- Top left floral -->
+        <div class="floral floral--tl floral--supporting floral--animated" style="width:190px;height:190px;opacity:0.42;">
+          <svg viewBox="0 0 170 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 162 Q20 105 58 75 Q96 45 140 25 Q162 14 168 18" stroke="#D4C490" stroke-width="2.2" fill="none" opacity="0.72"/>
+            <path d="M22 148 Q34 90 70 62 Q106 34 145 20 Q164 10 168 14" stroke="#8FA99E" stroke-width="1.6" fill="none" opacity="0.55"/>
+            <circle cx="62" cy="72" r="20" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="62" cy="72" r="14" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="62" cy="72" r="8" fill="#E8B4B4" opacity="0.5"/>
+            <path d="M54 55 Q62 32 70 55 Q87 43 77 63 Q93 67 77 75 Q87 89 70 79 Q62 97 54 79 Q37 89 47 75 Q31 67 47 63 Q37 43 54 55Z" fill="#D4C490" opacity="0.48"/>
+            <circle cx="118" cy="35" r="14" fill="#B8D4E3" opacity="0.48"/>
+            <circle cx="118" cy="35" r="9" fill="#E8D5E8" opacity="0.43"/>
+            <circle cx="118" cy="35" r="5" fill="#E8B4B4" opacity="0.48"/>
+            <path d="M45 115 Q57 100 69 115 Q81 130 57 125 Q33 120 45 115Z" fill="#8FA99E" opacity="0.52"/>
+            <path d="M92 48 Q104 33 116 48 Q128 63 104 58 Q80 53 92 48Z" fill="#8FA99E" opacity="0.47"/>
+            <circle cx="148" cy="20" r="5" fill="#E8B4B4" opacity="0.47"/>
+            <circle cx="88" cy="60" r="4" fill="#D4C490" opacity="0.42"/>
+          </svg>
+        </div>
+        <!-- Bottom right floral -->
+        <div class="floral floral--br floral--supporting floral--animated" style="width:190px;height:190px;opacity:0.42;">
+          <svg viewBox="0 0 170 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M162 8 Q150 65 112 95 Q74 125 30 145 Q8 156 2 152" stroke="#D4C490" stroke-width="2.2" fill="none" opacity="0.72"/>
+            <path d="M148 22 Q136 80 100 108 Q64 136 25 150 Q6 160 2 156" stroke="#8FA99E" stroke-width="1.6" fill="none" opacity="0.55"/>
+            <circle cx="108" cy="98" r="20" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="108" cy="98" r="14" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="108" cy="98" r="8" fill="#E8B4B4" opacity="0.5"/>
+            <path d="M100 81 Q108 58 116 81 Q133 69 123 89 Q139 93 123 101 Q133 115 116 105 Q108 123 100 105 Q83 115 93 101 Q77 93 93 89 Q83 69 100 81Z" fill="#D4C490" opacity="0.48"/>
+            <circle cx="52" cy="135" r="14" fill="#B8D4E3" opacity="0.48"/>
+            <circle cx="52" cy="135" r="9" fill="#E8D5E8" opacity="0.43"/>
+            <circle cx="52" cy="135" r="5" fill="#E8B4B4" opacity="0.48"/>
+            <path d="M125 55 Q113 40 101 55 Q89 70 113 65 Q137 60 125 55Z" fill="#8FA99E" opacity="0.52"/>
+            <path d="M78 122 Q66 107 54 122 Q42 137 66 132 Q90 127 78 122Z" fill="#8FA99E" opacity="0.47"/>
+            <circle cx="22" cy="150" r="5" fill="#E8B4B4" opacity="0.47"/>
+          </svg>
+        </div>
+        <!-- Top right small flower -->
+        <div class="floral floral--tr floral--micro floral--animated" style="width:95px;height:95px;opacity:0.36;">
+          <svg viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="38" cy="38" r="11" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="38" cy="38" r="7" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="38" cy="38" r="4" fill="#E8B4B4" opacity="0.5"/>
+            <path d="M32 25 Q38 8 44 25 Q54 16 49 30 Q58 33 49 37 Q54 48 44 41 Q38 55 32 41 Q22 48 27 37 Q18 33 27 30 Q22 16 32 25Z" fill="#D4C490" opacity="0.42"/>
+            <path d="M24 55 Q33 45 42 55 Q51 65 33 61 Q15 57 24 55Z" fill="#8FA99E" opacity="0.5"/>
+          </svg>
+        </div>
+        <!-- Bottom left small flower -->
+        <div class="floral floral--bl floral--micro floral--animated" style="width:95px;height:95px;opacity:0.36;">
+          <svg viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="38" cy="38" r="11" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="38" cy="38" r="7" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="38" cy="38" r="4" fill="#E8B4B4" opacity="0.5"/>
+            <path d="M32 25 Q38 8 44 25 Q54 16 49 30 Q58 33 49 37 Q54 48 44 41 Q38 55 32 41 Q22 48 27 37 Q18 33 27 30 Q22 16 32 25Z" fill="#D4C490" opacity="0.42"/>
+            <path d="M24 55 Q33 45 42 55 Q51 65 33 61 Q15 57 24 55Z" fill="#8FA99E" opacity="0.5"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <p class="section-label">Hadiah Pernikahan</p>
+          <h2 class="section-title">Kirim Hadiah</h2>
+          <p class="section-subtitle">Terima kasih atas doa dan hadiah yang diberikan</p>
+          <div class="floral-divider" aria-hidden="true">
+            <svg viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 15 Q50 0 100 15 Q150 30 200 15" stroke="#D4C490" stroke-width="1.5" fill="none"/>
+              <circle cx="100" cy="15" r="5" fill="#D4C490" opacity="0.6"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="gift-cards" id="giftCards">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== GUESTBOOK SECTION ==================== -->
+    <section id="guestbook" class="section section--guestbook" aria-label="Ucapan & Doa">
+      <div class="section-florals" aria-hidden="true">
+        <div class="floral floral--tl floral--micro floral--animated" style="width:100px;height:100px;opacity:0.38;">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 72 Q16 45 35 30 Q54 15 72 8 Q78 6 80 10" stroke="#8FA99E" stroke-width="1.5" fill="none" opacity="0.65"/>
+            <circle cx="37" cy="30" r="10" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="37" cy="30" r="6" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="37" cy="30" r="3" fill="#E8B4B4" opacity="0.5"/>
+            <path d="M31 20 Q37 6 43 20 Q52 14 47 24 Q56 27 47 30 Q52 40 43 34 Q37 46 31 34 Q22 40 27 30 Q18 27 27 24 Q22 14 31 20Z" fill="#D4C490" opacity="0.45"/>
+            <path d="M22 52 Q32 42 42 52 Q52 62 32 58 Q12 54 22 52Z" fill="#8FA99E" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="floral floral--br floral--micro floral--animated" style="width:100px;height:100px;opacity:0.38;">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M72 8 Q64 35 45 50 Q26 65 8 72 Q2 74 0 70" stroke="#8FA99E" stroke-width="1.5" fill="none" opacity="0.65"/>
+            <circle cx="43" cy="50" r="10" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="43" cy="50" r="6" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="43" cy="50" r="3" fill="#E8B4B4" opacity="0.5"/>
+            <path d="M37 40 Q43 26 49 40 Q58 34 53 44 Q62 47 53 50 Q58 60 49 54 Q43 66 37 54 Q28 60 33 50 Q24 47 33 44 Q28 34 37 40Z" fill="#D4C490" opacity="0.45"/>
+            <path d="M50 28 Q40 18 30 28 Q20 38 40 34 Q60 30 50 28Z" fill="#8FA99E" opacity="0.5"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <p class="section-label">Ucapan & Doa</p>
+          <h2 class="section-title">Kirim Ucapan</h2>
+          <div class="floral-divider" aria-hidden="true">
+            <svg viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 15 Q50 0 100 15 Q150 30 200 15" stroke="#D4C490" stroke-width="1.5" fill="none"/>
+              <circle cx="100" cy="15" r="5" fill="#D4C490" opacity="0.6"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="guestbook-form reveal">
+          <div class="guestbook-form-group">
+            <label class="guestbook-label" for="guestbookName">Nama</label>
+            <input class="guestbook-input" type="text" id="guestbookName" placeholder="Nama Anda" required>
+          </div>
+          <div class="guestbook-form-group">
+            <label class="guestbook-label" for="guestbookMessage">Ucapan & Doa</label>
+            <textarea class="guestbook-textarea" id="guestbookMessage" placeholder="Tulis ucapan dan doa untuk mempelai..." rows="4" required></textarea>
+          </div>
+          <button class="guestbook-submit-btn" id="guestbookSubmitBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+            Kirim Ucapan
+          </button>
+        </div>
+
+        <div class="guestbook-list" id="guestbookList">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="guestbook-empty" id="guestbookEmpty">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#A9BBB5" stroke-width="1.5" width="48" height="48">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <p>Belum ada ucapan. Jadilah yang pertama!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PENUTUP SECTION ==================== -->
+    <section id="penutup" class="section section--penutup" aria-label="Penutup">
+      <!-- Large floral composition - Level 1 Hero (ENHANCED) -->
+      <div class="section-florals" aria-hidden="true">
+        <!-- Top left large cluster -->
+        <div class="floral floral--tl floral--hero floral--animated" style="width:360px;height:360px;opacity:0.48;">
+          <svg viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 330 C10 330, 35 230, 85 170 C135 110, 200 80, 320 20" stroke="#8FA99E" stroke-width="3" fill="none" opacity="0.8"/>
+            <path d="M35 305 C35 305, 60 205, 110 150 C160 95, 220 75, 295 45" stroke="#D4C490" stroke-width="2.2" fill="none" opacity="0.6"/>
+            <circle cx="100" cy="165" r="55" fill="#B8D4E3" opacity="0.52"/>
+            <circle cx="100" cy="165" r="42" fill="#E8D5E8" opacity="0.48"/>
+            <circle cx="100" cy="165" r="28" fill="#F5E6E6" opacity="0.42"/>
+            <circle cx="100" cy="165" r="16" fill="#E8B4B4" opacity="0.55"/>
+            <path d="M86 132 Q100 85 114 132 Q145 110 128 145 Q158 152 128 165 Q158 185 114 172 Q100 210 86 172 Q56 185 72 165 Q42 152 72 145 Q55 110 86 132Z" fill="#D4C490" opacity="0.5"/>
+            <circle cx="195" cy="90" r="40" fill="#B8D4E3" opacity="0.48"/>
+            <circle cx="195" cy="90" r="28" fill="#E8D5E8" opacity="0.44"/>
+            <circle cx="195" cy="90" r="16" fill="#E8B4B4" opacity="0.5"/>
+            <path d="M185 68 Q195 38 205 68 Q228 52 218 78 Q240 84 218 92 Q228 112 205 100 Q195 128 185 100 Q162 112 172 92 Q150 84 172 78 Q160 52 185 68Z" fill="#D4C490" opacity="0.46"/>
+            <path d="M55 215 Q72 198 89 215 Q106 232 72 226 Q38 220 55 215Z" fill="#8FA99E" opacity="0.52"/>
+            <path d="M130 130 Q147 113 164 130 Q181 147 147 141 Q113 135 130 130Z" fill="#8FA99E" opacity="0.48"/>
+            <path d="M230 60 Q247 43 264 60 Q281 77 247 71 Q213 65 230 60Z" fill="#8FA99E" opacity="0.44"/>
+            <circle cx="270" cy="40" r="7" fill="#E8B4B4" opacity="0.48"/>
+            <circle cx="160" cy="110" r="5" fill="#B8D4E3" opacity="0.44"/>
+            <circle cx="75" cy="190" r="6" fill="#D4C490" opacity="0.44"/>
+          </svg>
+        </div>
+        <!-- Bottom right large cluster -->
+        <div class="floral floral--br floral--hero floral--animated" style="width:360px;height:360px;opacity:0.48;">
+          <svg viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M330 10 C330 10, 305 110, 255 170 C205 230, 140 260, 20 320" stroke="#8FA99E" stroke-width="3" fill="none" opacity="0.8"/>
+            <path d="M305 35 C305 35, 280 135, 230 190 C180 245, 120 265, 45 295" stroke="#D4C490" stroke-width="2.2" fill="none" opacity="0.6"/>
+            <circle cx="240" cy="175" r="55" fill="#B8D4E3" opacity="0.52"/>
+            <circle cx="240" cy="175" r="42" fill="#E8D5E8" opacity="0.48"/>
+            <circle cx="240" cy="175" r="28" fill="#F5E6E6" opacity="0.42"/>
+            <circle cx="240" cy="175" r="16" fill="#E8B4B4" opacity="0.55"/>
+            <path d="M226 142 Q240 95 254 142 Q285 120 268 155 Q298 162 268 175 Q298 195 254 182 Q240 220 226 182 Q196 195 212 175 Q182 162 212 155 Q195 120 226 142Z" fill="#D4C490" opacity="0.5"/>
+            <circle cx="145" cy="250" r="40" fill="#B8D4E3" opacity="0.48"/>
+            <circle cx="145" cy="250" r="28" fill="#E8D5E8" opacity="0.44"/>
+            <circle cx="145" cy="250" r="16" fill="#E8B4B4" opacity="0.5"/>
+            <path d="M135 228 Q145 198 155 228 Q178 212 168 238 Q190 244 168 252 Q178 272 155 260 Q145 288 135 260 Q112 272 122 252 Q100 244 122 238 Q110 212 135 228Z" fill="#D4C490" opacity="0.46"/>
+            <path d="M285 125 Q268 108 251 125 Q234 142 268 136 Q302 130 285 125Z" fill="#8FA99E" opacity="0.52"/>
+            <path d="M210 210 Q193 193 176 210 Q159 227 193 221 Q227 215 210 210Z" fill="#8FA99E" opacity="0.48"/>
+            <path d="M110 280 Q93 263 76 280 Q59 297 93 291 Q127 285 110 280Z" fill="#8FA99E" opacity="0.44"/>
+            <circle cx="70" cy="300" r="7" fill="#E8B4B4" opacity="0.48"/>
+            <circle cx="180" cy="230" r="5" fill="#B8D4E3" opacity="0.44"/>
+          </svg>
+        </div>
+        <!-- Left side branch -->
+        <div class="floral floral--left floral--supporting floral--animated-sway" style="top:35%;left:-40px;width:160px;height:260px;opacity:0.4;">
+          <svg viewBox="0 0 140 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M70 230 Q70 160 60 105 Q50 50 70 10" stroke="#8FA99E" stroke-width="2.2" fill="none" opacity="0.65"/>
+            <path d="M60 160 Q35 148 48 118 Q61 88 60 118" stroke="#8FA99E" stroke-width="1.4" fill="none" opacity="0.5"/>
+            <path d="M65 100 Q40 88 53 58 Q66 28 65 58" stroke="#8FA99E" stroke-width="1.4" fill="none" opacity="0.5"/>
+            <path d="M62 55 Q37 43 50 15 Q63 -13 62 15" stroke="#8FA99E" stroke-width="1.2" fill="none" opacity="0.45"/>
+            <circle cx="48" cy="120" r="14" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="48" cy="120" r="9" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="48" cy="120" r="5" fill="#E8B4B4" opacity="0.5"/>
+            <circle cx="53" cy="60" r="11" fill="#E8B4B4" opacity="0.45"/>
+            <circle cx="53" cy="60" r="6" fill="#F5E6E6" opacity="0.4"/>
+            <circle cx="56" cy="22" r="9" fill="#B8D4E3" opacity="0.45"/>
+            <circle cx="56" cy="22" r="5" fill="#E8D5E8" opacity="0.4"/>
+            <path d="M35 142 Q48 128 61 142 Q74 156 48 150 Q22 144 35 142Z" fill="#8FA99E" opacity="0.5"/>
+            <path d="M42 80 Q55 66 68 80 Q81 94 55 88 Q29 82 42 80Z" fill="#8FA99E" opacity="0.45"/>
+          </svg>
+        </div>
+        <!-- Right side branch -->
+        <div class="floral floral--right floral--supporting floral--animated-sway" style="top:35%;right:-40px;width:160px;height:260px;opacity:0.4;">
+          <svg viewBox="0 0 140 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M70 230 Q70 160 80 105 Q90 50 70 10" stroke="#D4C490" stroke-width="2.2" fill="none" opacity="0.65"/>
+            <path d="M80 160 Q105 148 92 118 Q79 88 80 118" stroke="#D4C490" stroke-width="1.4" fill="none" opacity="0.5"/>
+            <path d="M75 100 Q100 88 87 58 Q74 28 75 58" stroke="#D4C490" stroke-width="1.4" fill="none" opacity="0.5"/>
+            <path d="M78 55 Q103 43 90 15 Q77 -13 78 15" stroke="#D4C490" stroke-width="1.2" fill="none" opacity="0.45"/>
+            <circle cx="92" cy="120" r="14" fill="#B8D4E3" opacity="0.5"/>
+            <circle cx="92" cy="120" r="9" fill="#E8D5E8" opacity="0.45"/>
+            <circle cx="92" cy="120" r="5" fill="#E8B4B4" opacity="0.5"/>
+            <circle cx="87" cy="60" r="11" fill="#E8B4B4" opacity="0.45"/>
+            <circle cx="87" cy="60" r="6" fill="#F5E6E6" opacity="0.4"/>
+            <circle cx="84" cy="22" r="9" fill="#B8D4E3" opacity="0.45"/>
+            <circle cx="84" cy="22" r="5" fill="#E8D5E8" opacity="0.4"/>
+            <path d="M105 142 Q92 128 79 142 Q66 156 92 150 Q118 144 105 142Z" fill="#8FA99E" opacity="0.5"/>
+            <path d="M98 80 Q85 66 72 80 Q59 94 85 88 Q111 82 98 80Z" fill="#8FA99E" opacity="0.45"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="closing-content reveal">
+          <div class="floral-divider floral-divider--large" aria-hidden="true">
+            <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 20 Q50 0 100 20 Q150 40 200 20" stroke="#D4C490" stroke-width="1.5" fill="none"/>
+              <path d="M20 20 Q50 5 100 20 Q150 35 180 20" stroke="#8FA99E" stroke-width="1" fill="none" opacity="0.5"/>
+              <circle cx="100" cy="20" r="4" fill="#D4C490" opacity="0.6"/>
+            </svg>
+          </div>
+
+          <p class="closing-text">
+            Terima kasih telah menjadi bagian dari hari bahagia kami.
+            Semoga doa dan restu yang diberikan menjadi penyempurna perjalanan hidup kami.
+          </p>
+
+          <p class="closing-wassalam">
+            Wassalamualaikum Warahmatullahi Wabarakatuh
+          </p>
+
+          <p class="closing-sign">
+            Kami yang berbahagia,
+          </p>
+          <p class="closing-names" id="penutupNames"></p>
+
+          <div class="floral-divider floral-divider--large" aria-hidden="true">
+            <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 20 Q50 40 100 20 Q150 0 200 20" stroke="#D4C490" stroke-width="1.5" fill="none"/>
+              <path d="M20 20 Q50 35 100 20 Q150 5 180 20" stroke="#8FA99E" stroke-width="1" fill="none" opacity="0.5"/>
+              <circle cx="100" cy="20" r="4" fill="#D4C490" opacity="0.6"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <span id="toastMessage"></span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./js/config.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+</html>
