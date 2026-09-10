@@ -115,14 +115,25 @@
     if (!src) return;
 
     audio = new Audio(src);
-    audio.loop = true;
     audio.volume = 0.5;
+    audio.preload = 'metadata';
+
+    var startSec = CONFIG.music.startSeconds || 0;
+
+    audio.addEventListener('loadedmetadata', function() {
+      audio.currentTime = startSec;
+    });
+
+    audio.addEventListener('timeupdate', function() {
+      if (audio.duration && audio.currentTime >= audio.duration - 1) {
+        audio.currentTime = startSec;
+      }
+    });
 
     audio.play().then(function () {
       isPlaying = true;
       updateMusicButton();
     }).catch(function () {
-      // Autoplay blocked, wait for user interaction
       isPlaying = false;
       updateMusicButton();
     });
@@ -141,12 +152,13 @@
       if (isPlaying) {
         audio.pause();
         isPlaying = false;
+        updateMusicButton();
       } else {
         audio.play().then(function () {
           isPlaying = true;
+          updateMusicButton();
         }).catch(function () {});
       }
-      updateMusicButton();
     });
   }
 

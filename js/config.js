@@ -96,8 +96,9 @@ const CONFIG = {
   ],
 
   music: {
-    src: "./assets/music/bgm.mp3",
-    title: "Lagu Kami"
+    src: "./assets/music/ANGGIS DEVAKI - MENUA BERSAMA (OFFICIAL MUSIC VIDEO).mp3",
+    startSeconds: 105,
+    title: "Menua Bersama"
   },
 
   gifts: [
