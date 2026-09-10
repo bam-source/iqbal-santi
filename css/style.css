@@ -1326,6 +1326,30 @@ blockquote {
   color: var(--blue-gray);
   margin-bottom: var(--space-md);
   line-height: 1.6;
+  text-align: center;
+}
+
+.couple-parents-prefix {
+  display: block;
+  font-style: italic;
+  font-size: 12px;
+  margin-bottom: 4px;
+  opacity: 0.7;
+}
+
+.couple-parents-father {
+  display: block;
+}
+
+.couple-parents-separator {
+  display: block;
+  font-family: var(--font-display);
+  color: var(--champagne-gold);
+  margin: 2px 0;
+}
+
+.couple-parents-mother {
+  display: block;
 }
 
 .couple-quote {

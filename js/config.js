@@ -2,15 +2,23 @@ const CONFIG = {
   groom: {
     name: "Iqbal",
     fullName: "Iqbal Permana",
-    parents: "Bapak Sudrajat & Ibu Ati Atirah (Alm)",
-    photo: "./assets/gallery/groom.jpg",
+    parents: {
+      prefix: "Putra dari",
+      father: "Bapak Sudrajat",
+      mother: "Ibu Ati Atirah (Almh.)"
+    },
+    photo: "./assets/cowo.png",
     quote: "Kau adalah jawaban dari setiap doaku"
   },
   bride: {
     name: "Santi",
     fullName: "Santi Oktaviani",
-    parents: "Bapak Apriadi & Ibu Siti Rokhmaniyah (Alm)",
-    photo: "./assets/gallery/bride.jpg",
+    parents: {
+      prefix: "Putri dari",
+      father: "Bapak Apriadi",
+      mother: "Ibu Siti Rokhmaniyah (Almh.)"
+    },
+    photo: "./assets/cewe.png",
     quote: "Bersamamu, dunia terasa sempurna"
   },
 

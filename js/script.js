@@ -164,13 +164,29 @@
   /* ============================================
    MEMPELAI
    ============================================ */
+  function renderParents(el, parents) {
+    el.innerHTML =
+      '<span class="couple-parents-prefix">' + escapeHtml(parents.prefix) + '</span>' +
+      '<span class="couple-parents-father">' + escapeHtml(parents.father) + '</span>' +
+      '<span class="couple-parents-separator">&</span>' +
+      '<span class="couple-parents-mother">' + escapeHtml(parents.mother) + '</span>';
+  }
+
   function populateMempelai() {
     setText('groomFullName', CONFIG.groom.fullName);
-    setText('groomParents', CONFIG.groom.parents);
     setText('groomQuote', '"' + CONFIG.groom.quote + '"');
     setText('brideFullName', CONFIG.bride.fullName);
-    setText('brideParents', CONFIG.bride.parents);
     setText('brideQuote', '"' + CONFIG.bride.quote + '"');
+
+    // Parents
+    var groomParents = document.getElementById('groomParents');
+    var brideParents = document.getElementById('brideParents');
+    if (groomParents && CONFIG.groom.parents) {
+      renderParents(groomParents, CONFIG.groom.parents);
+    }
+    if (brideParents && CONFIG.bride.parents) {
+      renderParents(brideParents, CONFIG.bride.parents);
+    }
 
     // Photos
     var groomPhoto = document.getElementById('groomPhoto');
