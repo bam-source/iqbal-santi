@@ -181,6 +181,47 @@ blockquote {
   margin-bottom: 36px;
 }
 
+.section-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.section-icon--blue {
+  background: linear-gradient(135deg, #B8D4E3 0%, #8FA99E 100%);
+  color: #344B57;
+}
+
+.section-icon--gold {
+  background: linear-gradient(135deg, #D4C490 0%, #C9B890 100%);
+  color: #5A4E3C;
+}
+
+.section-icon--pink {
+  background: linear-gradient(135deg, #E8B4B4 0%, #E8D5E8 100%);
+  color: #8B5A5A;
+}
+
+.section-icon--sage {
+  background: linear-gradient(135deg, #8FA99E 0%, #A9BBB5 100%);
+  color: #344B57;
+}
+
+.section-icon--lavender {
+  background: linear-gradient(135deg, #E8D5E8 0%, #B8D4E3 100%);
+  color: #5A4E6B;
+}
+
+.section-icon--teal {
+  background: linear-gradient(135deg, #8FA99E 0%, #B8D4E3 100%);
+  color: #344B57;
+}
+
 .section-label {
   font-family: var(--font-body);
   font-size: 11px;
@@ -1354,6 +1395,10 @@ blockquote {
 
 .countdown-box {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
   padding: var(--space-xl) var(--space-sm);
   background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(12px);
@@ -1362,6 +1407,23 @@ blockquote {
   border: 1px solid rgba(201, 184, 144, 0.12);
   box-shadow: 0 2px 16px rgba(52, 75, 87, 0.06);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.countdown-number {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--deep-blue-gray);
+  line-height: 1;
+}
+
+.countdown-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--blue-gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
 }
 
 /* ============================================

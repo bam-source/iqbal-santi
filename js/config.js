@@ -18,7 +18,7 @@ const CONFIG = {
     date: "2026-12-21T08:00:00+07:00",
     dayName: "Senin",
     dateFormatted: "21 Desember 2026",
-    countdownLabel: "Menuju Hari Bahagia",
+    countdownLabel: "",
     akad: {
       title: "Akad Nikah",
       date: "Senin, 21 Desember 2026",
@@ -96,13 +96,6 @@ const CONFIG = {
     {
       bank: "Bank Central Asia (BCA)",
       number: "1234 5678 9012 3456",
-      name: "Iqbal Permana",
-      type: "rekening",
-      icon: "bank"
-    },
-    {
-      bank: "Bank Mandiri",
-      number: "1234 5678 9012",
       name: "Santi Oktaviani",
       type: "rekening",
       icon: "bank"
@@ -113,20 +106,6 @@ const CONFIG = {
       name: "Iqbal Permana",
       type: "rekening",
       icon: "bank"
-    },
-    {
-      bank: "GoPay",
-      number: "0812 3456 7890",
-      name: "Iqbal Permana",
-      type: "e-wallet",
-      icon: "wallet"
-    },
-    {
-      bank: "OVO",
-      number: "0812 3456 7890",
-      name: "Santi Oktaviani",
-      type: "e-wallet",
-      icon: "wallet"
     }
   ],
 
