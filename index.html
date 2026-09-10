@@ -31,6 +31,9 @@
 </head>
 <body>
 
+  <!-- Floating petals (all sections) -->
+  <div class="floating-petals" id="floatingPetals" aria-hidden="true"></div>
+
   <!-- ==================== MUSIC TOGGLE ==================== -->
   <button class="music-toggle" id="musicToggle" aria-label="Nyalakan/Matikan Musik" title="Nyalakan/Matikan Musik">
     <svg class="music-icon music-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -208,9 +211,6 @@
         <span class="cover-quote-mark cover-quote-mark--end" aria-hidden="true">&rdquo;</span>
       </div>
     </div>
-
-    <!-- Floating petals -->
-    <div class="floating-petals" id="floatingPetals" aria-hidden="true"></div>
   </section>
 
   <!-- ==================== MAIN CONTENT ==================== -->
@@ -886,8 +886,13 @@
           </button>
         </div>
 
-        <div class="guestbook-list" id="guestbookList">
-          <!-- Populated by JS -->
+        <div class="guestbook-carousel" id="guestbookCarousel">
+          <div class="guestbook-track" id="guestbookTrack">
+            <!-- Populated by JS -->
+          </div>
+          <div class="guestbook-dots" id="guestbookDots">
+            <!-- Dots rendered by JS -->
+          </div>
         </div>
 
         <div class="guestbook-empty" id="guestbookEmpty">

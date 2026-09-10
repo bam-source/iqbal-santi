@@ -901,10 +901,10 @@ blockquote {
 
 /* Floating petals */
 .floating-petals {
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: 9999;
   overflow: hidden;
 }
 
@@ -1841,11 +1841,51 @@ blockquote {
   background: linear-gradient(180deg, var(--very-light-blue) 0%, var(--powder-blue) 100%);
 }
 
-.guestbook-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
+.section--guestbook .section-inner {
+  max-width: 900px;
+}
+
+.guestbook-carousel {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
   margin-bottom: var(--space-lg);
+}
+
+.guestbook-track {
+  display: flex;
+  gap: var(--space-md);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.guestbook-track .guestbook-card {
+  min-width: calc((100% - 64px) / 5);
+  flex-shrink: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.guestbook-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--space-md);
+}
+
+.guestbook-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue-gray);
+  opacity: 0.3;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.guestbook-dot.active {
+  opacity: 1;
+  background: var(--champagne-gold);
+  transform: scale(1.2);
 }
 
 .guestbook-card {
@@ -1853,7 +1893,7 @@ blockquote {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 14px;
-  padding: var(--space-xl);
+  padding: var(--space-md);
   border: 1px solid rgba(201, 184, 144, 0.08);
   box-shadow: 0 2px 12px rgba(52, 75, 87, 0.04);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1872,8 +1912,8 @@ blockquote {
 }
 
 .guestbook-avatar {
-  width: 42px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
   border-radius: var(--radius-full);
   background: linear-gradient(135deg, var(--champagne-gold) 0%, #b0a27a 100%);
   display: flex;
@@ -1881,7 +1921,7 @@ blockquote {
   justify-content: center;
   color: var(--white);
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 600;
   flex-shrink: 0;
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -1894,9 +1934,11 @@ blockquote {
 
 .guestbook-name {
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--deep-blue-gray);
+  white-space: normal;
+  overflow: visible;
 }
 
 .guestbook-time {
@@ -1905,9 +1947,12 @@ blockquote {
 }
 
 .guestbook-message {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--blue-gray);
-  line-height: 1.7;
+  line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .guestbook-empty {
@@ -2521,6 +2566,42 @@ blockquote {
 }
 
 /* ============================================
+   TABLET RESPONSIVE (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .guestbook-slide {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    min-width: 100%;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  .guestbook-slide .guestbook-card {
+    min-width: 0;
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .guestbook-card-header {
+    flex-wrap: wrap;
+  }
+
+  .guestbook-meta {
+    min-width: 0;
+    flex: 1 1 0;
+  }
+
+  .guestbook-message {
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* ============================================
    MOBILE RESPONSIVE (max-width: 480px)
    ============================================ */
 @media (max-width: 480px) {
@@ -2600,6 +2681,7 @@ blockquote {
   .gift-card {
     min-width: 100%;
   }
+
 }
 
 /* ============================================

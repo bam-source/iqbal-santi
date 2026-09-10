@@ -410,9 +410,9 @@
      GUESTBOOK
      ============================================ */
   function populateGuestbook() {
-    var list = document.getElementById('guestbookList');
+    var track = document.getElementById('guestbookTrack');
     var empty = document.getElementById('guestbookEmpty');
-    if (!list) return;
+    if (!track) return;
 
     var storageKey = 'wedding_guestbook';
     var stored = localStorage.getItem(storageKey);
@@ -424,18 +424,20 @@
     }
 
     if (messages.length === 0) {
-      list.style.display = 'none';
+      var carousel = document.getElementById('guestbookCarousel');
+      if (carousel) carousel.style.display = 'none';
       if (empty) empty.style.display = 'block';
       return;
     }
 
     if (empty) empty.style.display = 'none';
-    list.style.display = 'flex';
+    var carousel = document.getElementById('guestbookCarousel');
+    if (carousel) carousel.style.display = 'block';
 
     var html = '';
     messages.forEach(function (item, i) {
       var initial = item.name ? item.name.charAt(0).toUpperCase() : '?';
-      html += '<div class="guestbook-card reveal" style="transition-delay: ' + (i * 0.05) + 's">';
+      html += '<div class="guestbook-card">';
       html += '  <div class="guestbook-card-header">';
       html += '    <div class="guestbook-avatar">' + escapeHtml(initial) + '</div>';
       html += '    <div class="guestbook-meta">';
@@ -447,9 +449,161 @@
       html += '</div>';
     });
 
-    list.innerHTML = html;
-    setupScrollReveal();
+    track.innerHTML = html;
+    setupGuestbookCarousel();
     setupGuestbookForm();
+  }
+
+  function setupGuestbookCarousel() {
+    var track = document.getElementById('guestbookTrack');
+    var dotsContainer = document.getElementById('guestbookDots');
+    if (!track || !dotsContainer) return;
+
+    var carouselIndex = 0;
+    var carouselInterval = null;
+    var isMobile = window.innerWidth <= 768;
+
+    // Build mobile slides if needed
+    if (isMobile) {
+      buildMobileSlides();
+    }
+
+    var slidesOrCards = isMobile
+      ? track.querySelectorAll('.guestbook-slide')
+      : track.querySelectorAll('.guestbook-card');
+    var totalItems = slidesOrCards.length;
+    var totalPages = isMobile
+      ? totalItems
+      : Math.ceil(totalItems / 5);
+
+    if (totalPages <= 1) {
+      dotsContainer.innerHTML = '';
+      return;
+    }
+
+    // Render dots
+    var dotsHtml = '';
+    for (var i = 0; i < totalPages; i++) {
+      dotsHtml += '<div class="guestbook-dot' + (i === 0 ? ' active' : '') + '" data-index="' + i + '"></div>';
+    }
+    dotsContainer.innerHTML = dotsHtml;
+
+    // Dot click handler
+    dotsContainer.querySelectorAll('.guestbook-dot').forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        goToSlide(parseInt(this.dataset.index));
+      });
+    });
+
+    // Go to slide — always horizontal
+    function goToSlide(index) {
+      carouselIndex = index;
+      var gap = 16;
+
+      if (isMobile) {
+        // Mobile: slide antar .guestbook-slide (horizontal)
+        var slide = track.querySelector('.guestbook-slide');
+        var slideWidth = slide.offsetWidth;
+        var offset = index * (slideWidth + gap);
+        track.style.transform = 'translateX(-' + offset + 'px)';
+      } else {
+        // Desktop: slide antar card (horizontal)
+        var cards = track.querySelectorAll('.guestbook-card');
+        var cardWidth = cards[0].offsetWidth;
+        var offset = index * 5 * (cardWidth + gap);
+        track.style.transform = 'translateX(-' + offset + 'px)';
+      }
+
+      dotsContainer.querySelectorAll('.guestbook-dot').forEach(function(dot, i) {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    // Auto-slide every 10 seconds
+    function startAutoSlide() {
+      carouselInterval = setInterval(function() {
+        carouselIndex = (carouselIndex + 1) % totalPages;
+        goToSlide(carouselIndex);
+      }, 3000);
+    }
+    startAutoSlide();
+
+    // Pause on hover
+    track.addEventListener('mouseenter', function() {
+      clearInterval(carouselInterval);
+    });
+    track.addEventListener('mouseleave', function() {
+      startAutoSlide();
+    });
+
+    // Update on resize
+    window.addEventListener('resize', function() {
+      var wasMobile = isMobile;
+      isMobile = window.innerWidth <= 768;
+
+      if (wasMobile !== isMobile) {
+        if (isMobile) {
+          buildMobileSlides();
+        } else {
+          removeMobileSlides();
+        }
+      }
+
+      slidesOrCards = isMobile
+        ? track.querySelectorAll('.guestbook-slide')
+        : track.querySelectorAll('.guestbook-card');
+      totalItems = slidesOrCards.length;
+      totalPages = isMobile
+        ? totalItems
+        : Math.ceil(totalItems / 5);
+
+      // Re-render dots
+      if (totalPages <= 1) {
+        dotsContainer.innerHTML = '';
+      } else {
+        var dotsHtml = '';
+        for (var i = 0; i < totalPages; i++) {
+          dotsHtml += '<div class="guestbook-dot' + (i === 0 ? ' active' : '') + '" data-index="' + i + '"></div>';
+        }
+        dotsContainer.innerHTML = dotsHtml;
+        dotsContainer.querySelectorAll('.guestbook-dot').forEach(function(dot) {
+          dot.addEventListener('click', function() {
+            goToSlide(parseInt(this.dataset.index));
+          });
+        });
+      }
+
+      carouselIndex = 0;
+      goToSlide(0);
+    });
+
+    // Build mobile: wrap every 2 cards in a slide
+    function buildMobileSlides() {
+      var allCards = Array.from(track.querySelectorAll('.guestbook-card'));
+      if (track.querySelector('.guestbook-slide')) return;
+
+      track.innerHTML = '';
+      for (var i = 0; i < allCards.length; i += 2) {
+        var slide = document.createElement('div');
+        slide.className = 'guestbook-slide';
+        slide.appendChild(allCards[i]);
+        if (allCards[i + 1]) slide.appendChild(allCards[i + 1]);
+        track.appendChild(slide);
+      }
+    }
+
+    // Remove mobile: flatten back to cards
+    function removeMobileSlides() {
+      var slides = track.querySelectorAll('.guestbook-slide');
+      if (slides.length === 0) return;
+
+      track.innerHTML = '';
+      slides.forEach(function(slide) {
+        while (slide.firstChild) {
+          track.appendChild(slide.firstChild);
+        }
+      });
+    }
   }
 
   function setupGuestbookForm() {
@@ -500,7 +654,7 @@
     var container = document.getElementById('floatingPetals');
     if (!container) return;
 
-    var petalCount = 18;
+    var petalCount = 30;
     var html = '';
 
     for (var i = 0; i < petalCount; i++) {
