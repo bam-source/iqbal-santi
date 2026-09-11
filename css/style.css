@@ -232,6 +232,7 @@ blockquote {
   color: var(--champagne-gold);
   margin-bottom: var(--space-md);
   display: block;
+  text-align: center;
 }
 
 .section-title {
@@ -1019,6 +1020,37 @@ blockquote {
   }
 }
 
+/* ============================================
+   SPARKLE / TWINKLE BACKGROUND
+   ============================================ */
+.sparkle-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--champagne-gold);
+  pointer-events: none;
+  opacity: 0;
+  animation: twinkle var(--dur, 3s) var(--delay, 0s) ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: var(--op, 0.5);
+    transform: scale(1);
+  }
+}
+
 /* ---------- Floral Motion Keyframes ---------- */
 
 /* Slow floating */
@@ -1243,6 +1275,105 @@ blockquote {
   background: linear-gradient(180deg, var(--ivory) 0%, var(--very-light-blue) 100%);
 }
 
+/* ============================================
+   KISAH CINTA SECTION
+   ============================================ */
+.section--kisahCinta {
+  background: linear-gradient(180deg, var(--very-light-blue) 0%, var(--ivory) 50%, var(--very-light-blue) 100%);
+}
+
+.section--kisahCinta .section-inner {
+  max-width: 600px;
+}
+
+.kisah-cinta-content {
+  text-align: center;
+}
+
+.kisah-cinta-milestone {
+  margin-bottom: var(--space-2xl);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.kisah-cinta-milestone.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.kisah-cinta-year {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--champagne-gold) 0%, #b0a27a 100%);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 auto var(--space-md);
+  box-shadow: 0 4px 16px rgba(201, 184, 144, 0.3);
+  position: relative;
+}
+
+.kisah-cinta-year::before {
+  content: attr(data-icon);
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.kisah-cinta-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--deep-blue-gray);
+  margin-bottom: var(--space-sm);
+  text-align: center;
+}
+
+.kisah-cinta-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--champagne-gold), transparent);
+  margin: 0 auto var(--space-md);
+}
+
+.kisah-cinta-text {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--blue-gray);
+  line-height: 1.8;
+  max-width: 480px;
+  margin: 0 auto;
+  white-space: pre-line;
+}
+
+.kisah-cinta-separator {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--champagne-gold) 30%, var(--sage) 70%, transparent);
+  margin: var(--space-lg) 0;
+  opacity: 0.4;
+}
+
+.kisah-cinta-closing {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--champagne-gold);
+  margin-top: var(--space-xl);
+  line-height: 1.6;
+  text-align: center;
+}
+
 .couple-cards {
   display: flex;
   flex-direction: column;
@@ -1273,8 +1404,10 @@ blockquote {
   overflow: hidden;
   position: relative;
   z-index: 1;
-  border: 2px solid rgba(201, 184, 144, 0.25);
-  box-shadow: 0 4px 24px rgba(52, 75, 87, 0.08);
+  border: 2px solid var(--champagne-gold);
+  box-shadow:
+    0 4px 24px rgba(52, 75, 87, 0.1),
+    inset 0 0 20px rgba(201, 184, 144, 0.1);
 }
 
 .couple-photo img,
@@ -1294,11 +1427,27 @@ blockquote {
 
 .couple-photo-deco {
   position: absolute;
-  inset: -12px;
-  border-radius: 50%;
-  border: 1px dashed rgba(201, 184, 144, 0.25);
-  animation: rotate-slow 25s linear infinite;
+  inset: -10px;
+  border-radius: 14px;
+  border: 1.5px dashed var(--champagne-gold);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 2;
 }
+
+.couple-photo-floral {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.couple-photo-floral--tl { top: -6px; left: -6px; }
+.couple-photo-floral--tr { top: -6px; right: -6px; transform: scaleX(-1); }
+.couple-photo-floral--bl { bottom: -6px; left: -6px; transform: scaleY(-1); }
+.couple-photo-floral--br { bottom: -6px; right: -6px; transform: scale(-1); }
 
 @keyframes rotate-slow {
   from { transform: rotate(0deg); }
@@ -1321,6 +1470,12 @@ blockquote {
   color: var(--deep-blue-gray);
   margin-bottom: var(--space-sm);
   letter-spacing: -0.3px;
+  animation: float-name 3s ease-in-out infinite;
+}
+
+@keyframes float-name {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
 }
 
 .couple-quote {
@@ -1630,7 +1785,7 @@ blockquote {
    WEDDING GIFT SECTION
    ============================================ */
 .section--gift {
-  background: linear-gradient(180deg, var(--ivory) 0%, var(--very-light-blue) 100%);
+  background: linear-gradient(180deg, var(--powder-blue) 0%, var(--very-light-blue) 50%, var(--ivory) 100%);
 }
 
 .gift-cards {
@@ -1738,7 +1893,7 @@ blockquote {
    GUESTBOOK SECTION
    ============================================ */
 .section--guestbook {
-  background: linear-gradient(180deg, var(--very-light-blue) 0%, var(--powder-blue) 100%);
+  background: linear-gradient(180deg, var(--ivory) 0%, var(--very-light-blue) 50%, var(--powder-blue) 100%);
 }
 
 .section--guestbook .section-inner {

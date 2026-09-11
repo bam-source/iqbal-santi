@@ -25,6 +25,7 @@
     populateEnvelopeCard();
     populateDoaPembuka();
     populateMempelai();
+    populateKisahCinta();
     populateCountdownLabel();
     startCountdown();
     populateAkad();
@@ -32,6 +33,7 @@
     populateGifts();
     populateGuestbook();
     createFloatingPetals();
+    createSparkles();
     setupEnvelopeOpening();
     setupMusicToggle();
     setupScrollReveal();
@@ -210,6 +212,30 @@
         bridePhoto.innerHTML = '<img src="' + CONFIG.bride.photo + '" alt="Foto ' + CONFIG.bride.name + '">';
       }
     }
+  }
+
+  function populateKisahCinta() {
+    var container = document.getElementById('kisahCintaContent');
+    if (!container || !CONFIG.kisahCinta) return;
+
+    var html = '';
+    CONFIG.kisahCinta.forEach(function (item, i) {
+      html += '<div class="kisah-cinta-milestone reveal">';
+      html += '  <div class="kisah-cinta-year" data-icon="' + item.icon + '">' + escapeHtml(item.year) + '</div>';
+      html += '  <h3 class="kisah-cinta-title">' + escapeHtml(item.title) + '</h3>';
+      html += '  <div class="kisah-cinta-divider"></div>';
+      html += '  <p class="kisah-cinta-text">' + escapeHtml(item.text) + '</p>';
+      if (i < CONFIG.kisahCinta.length - 1) {
+        html += '  <div class="kisah-cinta-separator"></div>';
+      }
+      html += '</div>';
+    });
+
+    if (CONFIG.kisahCintaClosing) {
+      html += '<p class="kisah-cinta-closing reveal">' + escapeHtml(CONFIG.kisahCintaClosing) + '</p>';
+    }
+
+    container.innerHTML = html;
   }
 
   /* ============================================
@@ -647,6 +673,27 @@
       var size = (Math.random() * 8 + 6) + 'px';
 
       html += '<div class="' + cls + '" style="left:' + left + ';animation-delay:' + delay + ';animation-duration:' + duration + ';width:' + size + ';height:' + size + '"></div>';
+    }
+
+    container.innerHTML = html;
+  }
+
+  function createSparkles() {
+    var container = document.getElementById('sparkleContainer');
+    if (!container) return;
+
+    var sparkleCount = 40;
+    var html = '';
+
+    for (var i = 0; i < sparkleCount; i++) {
+      var left = (Math.random() * 100) + '%';
+      var top = (Math.random() * 100) + '%';
+      var dur = (2 + Math.random() * 3) + 's';
+      var delay = (Math.random() * 3) + 's';
+      var op = (0.3 + Math.random() * 0.4);
+      var size = (2 + Math.random() * 4) + 'px';
+
+      html += '<div class="sparkle" style="left:' + left + ';top:' + top + ';width:' + size + ';height:' + size + ';--dur:' + dur + ';--delay:' + delay + ';--op:' + op + '"></div>';
     }
 
     container.innerHTML = html;
