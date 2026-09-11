@@ -5,6 +5,19 @@
 (function () {
   'use strict';
 
+  /* ---------- Firebase Init ---------- */
+  var firebaseConfig = {
+    apiKey: "AIzaSyB08wLFSrEGS-Fm2MWke9j6c0BcOOFydl8",
+    authDomain: "undangan-f72cc.firebaseapp.com",
+    databaseURL: "https://undangan-f72cc-default-rtdb.firebaseio.com",
+    projectId: "undangan-f72cc",
+    storageBucket: "undangan-f72cc.firebasestorage.app",
+    messagingSenderId: "94582727493",
+    appId: "1:94582727493:web:3775340ed9c7110794542c"
+  };
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.database();
+
   /* ---------- DOM Ready ---------- */
   document.addEventListener('DOMContentLoaded', init);
 
@@ -14,12 +27,10 @@
     populateMempelai();
     populateCountdownLabel();
     startCountdown();
-    populateLoveStory();
     populateAkad();
     populateResepsi();
     populateGifts();
     populateGuestbook();
-    populatePenutup();
     createFloatingPetals();
     setupEnvelopeOpening();
     setupMusicToggle();
@@ -176,38 +187,28 @@
   /* ============================================
    MEMPELAI
    ============================================ */
-  function renderParents(el, parents) {
-    el.innerHTML =
-      '<span class="couple-parents-prefix">' + escapeHtml(parents.prefix) + '</span>' +
-      '<span class="couple-parents-father">' + escapeHtml(parents.father) + '</span>' +
-      '<span class="couple-parents-separator">&</span>' +
-      '<span class="couple-parents-mother">' + escapeHtml(parents.mother) + '</span>';
-  }
-
   function populateMempelai() {
     setText('groomFullName', CONFIG.groom.fullName);
     setText('groomQuote', '"' + CONFIG.groom.quote + '"');
     setText('brideFullName', CONFIG.bride.fullName);
     setText('brideQuote', '"' + CONFIG.bride.quote + '"');
 
-    // Parents
-    var groomParents = document.getElementById('groomParents');
-    var brideParents = document.getElementById('brideParents');
-    if (groomParents && CONFIG.groom.parents) {
-      renderParents(groomParents, CONFIG.groom.parents);
-    }
-    if (brideParents && CONFIG.bride.parents) {
-      renderParents(brideParents, CONFIG.bride.parents);
-    }
-
     // Photos
     var groomPhoto = document.getElementById('groomPhoto');
     var bridePhoto = document.getElementById('bridePhoto');
     if (groomPhoto && CONFIG.groom.photo) {
-      groomPhoto.innerHTML = '<img src="' + CONFIG.groom.photo + '" alt="Foto ' + CONFIG.groom.name + '">';
+      if (CONFIG.groom.photo.endsWith('.mp4')) {
+        groomPhoto.innerHTML = '<video src="' + CONFIG.groom.photo + '" autoplay muted loop playsinline></video>';
+      } else {
+        groomPhoto.innerHTML = '<img src="' + CONFIG.groom.photo + '" alt="Foto ' + CONFIG.groom.name + '">';
+      }
     }
     if (bridePhoto && CONFIG.bride.photo) {
-      bridePhoto.innerHTML = '<img src="' + CONFIG.bride.photo + '" alt="Foto ' + CONFIG.bride.name + '">';
+      if (CONFIG.bride.photo.endsWith('.mp4')) {
+        bridePhoto.innerHTML = '<video src="' + CONFIG.bride.photo + '" autoplay muted loop playsinline></video>';
+      } else {
+        bridePhoto.innerHTML = '<img src="' + CONFIG.bride.photo + '" alt="Foto ' + CONFIG.bride.name + '">';
+      }
     }
   }
 
@@ -271,29 +272,6 @@
   /* ============================================
      LOVE STORY
      ============================================ */
-  function populateLoveStory() {
-    var container = document.getElementById('timeline');
-    if (!container) return;
-
-    var html = '';
-    CONFIG.loveStory.forEach(function (item, i) {
-      html += '<div class="timeline-item reveal" role="listitem" style="transition-delay: ' + (i * 0.1) + 's">';
-      html += '  <div class="timeline-dot"></div>';
-      html += '  <p class="timeline-year">' + escapeHtml(item.year) + '</p>';
-      html += '  <h3 class="timeline-title">' + escapeHtml(item.title) + '</h3>';
-      html += '  <p class="timeline-desc">' + escapeHtml(item.description) + '</p>';
-      if (item.photo) {
-        html += '  <div class="timeline-photo">';
-        html += '    <img src="' + item.photo + '" alt="' + escapeHtml(item.title) + '" loading="lazy">';
-        html += '  </div>';
-      }
-      html += '</div>';
-    });
-
-    container.innerHTML = html;
-    setupScrollReveal();
-  }
-
   /* ============================================
      EVENTS
      ============================================ */
@@ -437,48 +415,50 @@
   /* ============================================
      GUESTBOOK
      ============================================ */
+  function formatTime(timestamp) {
+    var diff = Date.now() - timestamp;
+    var minutes = Math.floor(diff / 60000);
+    var hours = Math.floor(diff / 3600000);
+    var days = Math.floor(diff / 86400000);
+
+    if (minutes < 1) return 'Baru saja';
+    if (minutes < 60) return minutes + ' menit yang lalu';
+    if (hours < 24) return hours + ' jam yang lalu';
+    if (days < 7) return days + ' hari yang lalu';
+    return new Date(timestamp).toLocaleDateString('id-ID');
+  }
+
   function populateGuestbook() {
     var track = document.getElementById('guestbookTrack');
     var empty = document.getElementById('guestbookEmpty');
     if (!track) return;
 
-    var storageKey = 'wedding_guestbook';
-    var stored = localStorage.getItem(storageKey);
-    var messages = stored ? JSON.parse(stored) : [];
+    db.ref('guestbook/entries').orderByChild('timestamp').on('child_added', function(snap) {
+      var entry = snap.val();
+      var id = snap.key;
+      var initial = entry.name ? entry.name.charAt(0).toUpperCase() : '?';
 
-    if (messages.length === 0 && CONFIG.guestbookInitial && CONFIG.guestbookInitial.length > 0) {
-      messages = CONFIG.guestbookInitial.slice();
-      localStorage.setItem(storageKey, JSON.stringify(messages));
-    }
-
-    if (messages.length === 0) {
-      var carousel = document.getElementById('guestbookCarousel');
-      if (carousel) carousel.style.display = 'none';
-      if (empty) empty.style.display = 'block';
-      return;
-    }
-
-    if (empty) empty.style.display = 'none';
-    var carousel = document.getElementById('guestbookCarousel');
-    if (carousel) carousel.style.display = 'block';
-
-    var html = '';
-    messages.forEach(function (item, i) {
-      var initial = item.name ? item.name.charAt(0).toUpperCase() : '?';
-      html += '<div class="guestbook-card">';
+      var html = '<div class="guestbook-card" id="gb-' + id + '">';
       html += '  <div class="guestbook-card-header">';
       html += '    <div class="guestbook-avatar">' + escapeHtml(initial) + '</div>';
       html += '    <div class="guestbook-meta">';
-      html += '      <p class="guestbook-name">' + escapeHtml(item.name) + '</p>';
-      html += '      <p class="guestbook-time">' + escapeHtml(item.time) + '</p>';
+      html += '      <p class="guestbook-name">' + escapeHtml(entry.name) + '</p>';
+      html += '      <p class="guestbook-time">' + escapeHtml(formatTime(entry.timestamp)) + '</p>';
       html += '    </div>';
       html += '  </div>';
-      html += '  <p class="guestbook-message">' + escapeHtml(item.message) + '</p>';
+      html += '  <p class="guestbook-message">' + escapeHtml(entry.message) + '</p>';
       html += '</div>';
+
+      track.insertAdjacentHTML('afterbegin', html);
     });
 
-    track.innerHTML = html;
-    setupGuestbookCarousel();
+    db.ref('guestbook/entries').once('value', function(snap) {
+      if (empty) empty.style.display = 'none';
+      var carousel = document.getElementById('guestbookCarousel');
+      if (carousel) carousel.style.display = 'block';
+      setupGuestbookCarousel();
+    });
+
     setupGuestbookForm();
   }
 
@@ -487,22 +467,27 @@
     var dotsContainer = document.getElementById('guestbookDots');
     if (!track || !dotsContainer) return;
 
-    var carouselIndex = 0;
-    var carouselInterval = null;
     var isMobile = window.innerWidth <= 768;
 
-    // Build mobile slides if needed
-    if (isMobile) {
-      buildMobileSlides();
+    // Desktop: skip carousel, just listen for resize
+    if (!isMobile) {
+      window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+          setupGuestbookCarousel();
+        }
+      });
+      return;
     }
 
-    var slidesOrCards = isMobile
-      ? track.querySelectorAll('.guestbook-slide')
-      : track.querySelectorAll('.guestbook-card');
-    var totalItems = slidesOrCards.length;
-    var totalPages = isMobile
-      ? totalItems
-      : Math.ceil(totalItems / 5);
+    // === MOBILE ONLY ===
+    var carouselIndex = 0;
+    var carouselInterval = null;
+
+    buildMobileSlides();
+
+    var slides = track.querySelectorAll('.guestbook-slide');
+    var totalItems = slides.length;
+    var totalPages = totalItems;
 
     if (totalPages <= 1) {
       dotsContainer.innerHTML = '';
@@ -523,31 +508,21 @@
       });
     });
 
-    // Go to slide — always horizontal
+    // Go to slide — horizontal
     function goToSlide(index) {
       carouselIndex = index;
       var gap = 16;
-
-      if (isMobile) {
-        // Mobile: slide antar .guestbook-slide (horizontal)
-        var slide = track.querySelector('.guestbook-slide');
-        var slideWidth = slide.offsetWidth;
-        var offset = index * (slideWidth + gap);
-        track.style.transform = 'translateX(-' + offset + 'px)';
-      } else {
-        // Desktop: slide antar card (horizontal)
-        var cards = track.querySelectorAll('.guestbook-card');
-        var cardWidth = cards[0].offsetWidth;
-        var offset = index * 5 * (cardWidth + gap);
-        track.style.transform = 'translateX(-' + offset + 'px)';
-      }
+      var slide = track.querySelector('.guestbook-slide');
+      var slideWidth = slide.offsetWidth;
+      var offset = index * (slideWidth + gap);
+      track.style.transform = 'translateX(-' + offset + 'px)';
 
       dotsContainer.querySelectorAll('.guestbook-dot').forEach(function(dot, i) {
         dot.classList.toggle('active', i === index);
       });
     }
 
-    // Auto-slide every 10 seconds
+    // Auto-slide every 3 seconds
     function startAutoSlide() {
       carouselInterval = setInterval(function() {
         carouselIndex = (carouselIndex + 1) % totalPages;
@@ -566,24 +541,16 @@
 
     // Update on resize
     window.addEventListener('resize', function() {
-      var wasMobile = isMobile;
-      isMobile = window.innerWidth <= 768;
-
-      if (wasMobile !== isMobile) {
-        if (isMobile) {
-          buildMobileSlides();
-        } else {
-          removeMobileSlides();
-        }
+      if (window.innerWidth > 768) {
+        removeMobileSlides();
+        clearInterval(carouselInterval);
+        return;
       }
 
-      slidesOrCards = isMobile
-        ? track.querySelectorAll('.guestbook-slide')
-        : track.querySelectorAll('.guestbook-card');
-      totalItems = slidesOrCards.length;
-      totalPages = isMobile
-        ? totalItems
-        : Math.ceil(totalItems / 5);
+      buildMobileSlides();
+      slides = track.querySelectorAll('.guestbook-slide');
+      totalItems = slides.length;
+      totalPages = totalItems;
 
       // Re-render dots
       if (totalPages <= 1) {
@@ -648,33 +615,20 @@
         return;
       }
 
-      var storageKey = 'wedding_guestbook';
-      var stored = localStorage.getItem(storageKey);
-      var messages = stored ? JSON.parse(stored) : [];
-
-      messages.unshift({
+      db.ref('guestbook/entries').push({
         name: name,
         message: message,
-        time: 'Baru saja'
+        timestamp: Date.now()
       });
 
-      localStorage.setItem(storageKey, JSON.stringify(messages));
       nameInput.value = '';
       messageInput.value = '';
-      populateGuestbook();
     });
   }
 
   /* ============================================
      CLOSING
      ============================================ */
-  function populatePenutup() {
-    var el = document.getElementById('penutupNames');
-    if (el) {
-      el.textContent = CONFIG.groom.name + ' & ' + CONFIG.bride.name;
-    }
-  }
-
   /* ============================================
      FLOATING PETALS
      ============================================ */
@@ -877,7 +831,7 @@
     var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    var photos = document.querySelectorAll('.couple-photo img, .timeline-photo img');
+    var photos = document.querySelectorAll('.couple-photo img, .couple-photo video, .timeline-photo img');
 
     if (!('IntersectionObserver' in window)) {
       photos.forEach(function(img) {

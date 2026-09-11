@@ -2,23 +2,13 @@ const CONFIG = {
   groom: {
     name: "Iqbal",
     fullName: "Iqbal Permana",
-    parents: {
-      prefix: "Putra dari",
-      father: "Bapak Sudrajat",
-      mother: "Ibu Ati Atirah (Almh.)"
-    },
-    photo: "./assets/cowo.png",
+    photo: "./assets/cowo.mp4",
     quote: "Kau adalah jawaban dari setiap doaku"
   },
   bride: {
     name: "Santi",
     fullName: "Santi Oktaviani",
-    parents: {
-      prefix: "Putri dari",
-      father: "Bapak Apriadi",
-      mother: "Ibu Siti Rokhmaniyah (Almh.)"
-    },
-    photo: "./assets/cewe.png",
+    photo: "./assets/cewe.mp4",
     quote: "Bersamamu, dunia terasa sempurna"
   },
 
@@ -62,39 +52,6 @@ const CONFIG = {
     source: "QS. Ar-Rum: 21"
   },
 
-  loveStory: [
-    {
-      year: "2020",
-      title: "Pertama Bertemu",
-      description: "Kami pertama kali bertemu di sebuah acara seminar nasional. Sebuah pertemuan singkat yang ternyata menjadi awal dari segalanya.",
-      photo: "./assets/gallery/story-01.jpg"
-    },
-    {
-      year: "2021",
-      title: "Mulai Dekat",
-      description: "Setelah setahun tetap berhubungan, kami mulai lebih sering berkomunikasi. Dari teman, perlahan menjadi seseorang yang spesial.",
-      photo: "./assets/gallery/story-02.jpg"
-    },
-    {
-      year: "2023",
-      title: "Resmi Berhubungan",
-      description: "Dengan restu dari kedua keluarga, kami memutuskan untuk menjalin hubungan yang lebih serius.",
-      photo: "./assets/gallery/story-03.jpg"
-    },
-    {
-      year: "2025",
-      title: "Lamaran",
-      description: "Di sebuah sore yang indah, dengan penuh haru dan bahagia, kami melangkah ke jenjang yang lebih serius.",
-      photo: "./assets/gallery/story-04.jpg"
-    },
-    {
-      year: "2026",
-      title: "Hari Pernikahan",
-      description: "Insya Allah, kami akan melangsungkan pernikahan. Semoga menjadi awal dari perjalanan indah yang penuh berkah.",
-      photo: "./assets/gallery/story-05.jpg"
-    }
-  ],
-
   music: {
     src: "./assets/music/ANGGIS DEVAKI - MENUA BERSAMA (OFFICIAL MUSIC VIDEO).mp3",
     startSeconds: 105,
@@ -115,49 +72,6 @@ const CONFIG = {
       name: "Iqbal Permana",
       type: "rekening",
       icon: "bank"
-    }
-  ],
-
-  guestbookInitial: [
-    {
-      name: "Budi Santoso",
-      message: "Selamat menempuh hidup baru! Semoga menjadi keluarga yang sakinah, mawaddah, wa rahmah. Barakallahu lakuma.",
-      time: "2 hari yang lalu"
-    },
-    {
-      name: "Siti Rahayu",
-      message: "Selamat menikah, Iqbal & Santi! Semoga selalu diberkahi kebahagiaan dan dilimpahkan rezeki yang halal. Aamiin.",
-      time: "3 hari yang lalu"
-    },
-    {
-      name: "Ahmad Fauzi",
-      message: "MasyaAllah, turut berbahagia! Semoga pernikahan ini menjadi langkah awal menuju Jannah-Nya.",
-      time: "5 hari yang lalu"
-    },
-    {
-      name: "Dewi Kartika",
-      message: "Barakallahu wa baaraka alaikuma wa jama'a bainakuma fii khair. Semoga selalu bahagia ya!",
-      time: "1 minggu yang lalu"
-    },
-    {
-      name: "Rizky Pratama",
-      message: "Alhamdulillah, akhirnya! Semoga menjadi pasangan yang saling melengkapi hingga Jannah. Aamiin.",
-      time: "1 minggu yang lalu"
-    },
-    {
-      name: "Nina Sari",
-      message: "Wah, ga sabar nunggu hari H! Semoga lancar semua acaranya ya. Semoga bahagia selalu!",
-      time: "2 minggu yang lalu"
-    },
-    {
-      name: "Hendra Wijaya",
-      message: "Turut berbahagia. Semoga menjadi keluarga yang harmonis dan penuh cinta. Barakallahu.",
-      time: "2 minggu yang lalu"
-    },
-    {
-      name: "Putri Amelia",
-      message: "Bahagia banget! Semoga samawa ya Iqbal Santi. Jangan lupa undang aku jadi saksi pernikahan ya!",
-      time: "3 minggu yang lalu"
     }
   ]
 };

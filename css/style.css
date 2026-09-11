@@ -20,8 +20,9 @@
   --gradient-section: linear-gradient(180deg, var(--very-light-blue) 0%, var(--ivory) 50%, var(--very-light-blue) 100%);
 
   /* Typography */
-  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-body: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+  --font-body: 'Work Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-script: 'Pacifico', cursive;
 
   /* Spacing */
   --space-xs: 4px;
@@ -1264,7 +1265,7 @@ blockquote {
 .couple-photo {
   width: 160px;
   height: 160px;
-  border-radius: 50%;
+  border-radius: 12px;
   background: var(--powder-blue);
   display: flex;
   align-items: center;
@@ -1276,7 +1277,8 @@ blockquote {
   box-shadow: 0 4px 24px rgba(52, 75, 87, 0.08);
 }
 
-.couple-photo img {
+.couple-photo img,
+.couple-photo video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1319,37 +1321,6 @@ blockquote {
   color: var(--deep-blue-gray);
   margin-bottom: var(--space-sm);
   letter-spacing: -0.3px;
-}
-
-.couple-parents {
-  font-size: 13px;
-  color: var(--blue-gray);
-  margin-bottom: var(--space-md);
-  line-height: 1.6;
-  text-align: center;
-}
-
-.couple-parents-prefix {
-  display: block;
-  font-style: italic;
-  font-size: 12px;
-  margin-bottom: 4px;
-  opacity: 0.7;
-}
-
-.couple-parents-father {
-  display: block;
-}
-
-.couple-parents-separator {
-  display: block;
-  font-family: var(--font-display);
-  color: var(--champagne-gold);
-  margin: 2px 0;
-}
-
-.couple-parents-mother {
-  display: block;
 }
 
 .couple-quote {
@@ -1448,102 +1419,6 @@ blockquote {
   text-transform: uppercase;
   letter-spacing: 1px;
   opacity: 0.7;
-}
-
-/* ============================================
-   LOVE STORY / TIMELINE
-   ============================================ */
-.section--story {
-  background: linear-gradient(180deg, var(--powder-blue) 0%, var(--ivory) 100%);
-}
-
-.timeline {
-  position: relative;
-  padding: var(--space-lg) 0;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 20px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(180deg, transparent, var(--champagne-gold), var(--champagne-gold), transparent);
-  opacity: 0.35;
-}
-
-.timeline-item {
-  position: relative;
-  padding-left: 52px;
-  padding-bottom: 24px;
-  background: #ffffff;
-  border: 1px solid rgba(201, 184, 144, 0.15);
-  border-radius: 12px;
-  padding: 20px 20px 20px 60px;
-  box-shadow: 0 4px 16px rgba(52, 75, 87, 0.08);
-  margin-bottom: 16px;
-}
-
-.timeline-item:last-child {
-  padding-bottom: 0;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: 13px;
-  top: 4px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--white);
-  border: 1.5px solid var(--champagne-gold);
-  z-index: 2;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.timeline-item:hover .timeline-dot {
-  background: var(--champagne-gold);
-  transform: scale(1.15);
-}
-
-.timeline-year {
-  font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--champagne-gold);
-  margin-bottom: var(--space-sm);
-  letter-spacing: 0.5px;
-}
-
-.timeline-title {
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--deep-blue-gray);
-  margin-bottom: var(--space-sm);
-  letter-spacing: -0.3px;
-}
-
-.timeline-desc {
-  font-size: 14px;
-  color: var(--blue-gray);
-  line-height: 1.75;
-  margin-bottom: var(--space-md);
-}
-
-.timeline-photo {
-  width: 100%;
-  max-width: 280px;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-soft);
-}
-
-.timeline-photo img {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 /* ============================================
@@ -1714,7 +1589,8 @@ blockquote {
 }
 
 .doa-pembuka-text {
-  font-size: 15px;
+  font-family: var(--font-display);
+  font-size: 18px;
   color: var(--blue-gray);
   line-height: 1.8;
   margin-bottom: var(--space-lg);
@@ -1912,6 +1788,31 @@ blockquote {
   transform: scale(1.2);
 }
 
+/* ============================================
+   GUESTBOOK DESKTOP LIST LAYOUT
+   ============================================ */
+@media (min-width: 769px) {
+  .guestbook-carousel {
+    overflow: visible;
+  }
+
+  .guestbook-track {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    transform: none !important;
+  }
+
+  .guestbook-track .guestbook-card {
+    min-width: 0;
+    width: auto;
+  }
+
+  .guestbook-dots {
+    display: none;
+  }
+}
+
 .guestbook-card {
   background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(12px);
@@ -2076,51 +1977,6 @@ blockquote {
 }
 
 /* ============================================
-   PENUTUP SECTION
-   ============================================ */
-.section--penutup {
-  background: linear-gradient(180deg, var(--powder-blue) 0%, var(--ivory) 100%);
-  min-height: 60vh;
-}
-
-.closing-content {
-  text-align: center;
-}
-
-.closing-text {
-  font-size: 16px;
-  color: var(--blue-gray);
-  line-height: 1.9;
-  max-width: 400px;
-  margin: 0 auto var(--space-2xl);
-}
-
-.closing-wassalam {
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--deep-blue-gray);
-  margin-bottom: var(--space-2xl);
-  letter-spacing: -0.3px;
-}
-
-.closing-sign {
-  font-size: 14px;
-  color: var(--blue-gray);
-  margin-bottom: var(--space-sm);
-  font-style: italic;
-}
-
-.closing-names {
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--deep-blue-gray);
-  margin-bottom: var(--space-2xl);
-  letter-spacing: -0.5px;
-}
-
-/* ============================================
    TOAST
    ============================================ */
 .toast {
@@ -2235,19 +2091,6 @@ blockquote {
   transform: translateY(0);
 }
 
-/* Timeline reveal (love story) */
-.reveal-timeline {
-  opacity: 0;
-  transform: translateX(-16px);
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal-timeline.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
 /* Event card (akad/resepsi) */
 .reveal-event {
   opacity: 0;
@@ -2270,19 +2113,6 @@ blockquote {
 }
 
 .reveal-message.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Closing (penutup) */
-.reveal-closing {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal-closing.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -2468,33 +2298,6 @@ blockquote {
     font-size: 52px;
   }
 
-  .timeline::before {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .timeline-item {
-    width: 100%;
-    padding: 20px 20px 20px 60px;
-    background: #ffffff;
-    border: 1px solid rgba(201, 184, 144, 0.15);
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(52, 75, 87, 0.08);
-    margin-bottom: 24px;
-  }
-
-  .timeline-item:nth-child(even) {
-    padding-left: 60px;
-    padding-right: 20px;
-    margin-left: 0;
-    text-align: left;
-  }
-
-  .timeline-item:nth-child(even) .timeline-dot {
-    left: auto;
-    right: -9px;
-  }
-
   .gift-cards {
     flex-wrap: wrap;
   }
@@ -2672,26 +2475,6 @@ blockquote {
     height: 16px;
   }
 
-  /* Timeline Cards Mobile */
-  .timeline-item {
-    padding: 16px 16px 16px 52px;
-    margin-bottom: 20px;
-  }
-
-  .timeline-dot {
-    left: 10px;
-    width: 14px;
-    height: 14px;
-  }
-
-  .timeline-title {
-    font-size: 17px;
-  }
-
-  .timeline-desc {
-    font-size: 13px;
-  }
-
   /* Countdown Mobile */
   .countdown-box {
     padding: var(--space-lg) var(--space-xs);
@@ -2726,10 +2509,8 @@ blockquote {
   .reveal-card,
   .reveal-portrait,
   .reveal-paper,
-  .reveal-timeline,
   .reveal-event,
   .reveal-message,
-  .reveal-closing,
   .reveal-stagger > * {
     opacity: 1;
     transform: none;
