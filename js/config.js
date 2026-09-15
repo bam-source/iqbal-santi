@@ -83,19 +83,19 @@ const CONFIG = {
       text: "Tahun 2025 menjadi awal dari kisah kami. Sebuah perjalanan yang perlahan membawa kami untuk saling mengenal, memahami, dan menemukan kenyamanan dalam kebersamaan."
     },
     {
-      year: "Awal 2026",
+      year: "Awal|2026",
       icon: "♡",
       title: "Memilih Untuk Bersama",
       text: "Di awal tahun 2026, kami memutuskan untuk meresmikan hubungan dan memilih untuk menjalani hari-hari dengan saling menggenggam dan menjaga. Bersama, kami belajar bahwa cinta bukan hanya tentang bahagia, tetapi tentang tetap memilih satu sama lain dalam setiap keadaan."
     },
     {
-      year: "Agustus 2026",
+      year: "Agustus|2026",
       icon: "💍",
       title: "Lamaran",
       text: "Sebuah langkah besar kami ambil. Pada bulan Agustus 2026, kami mengikat kesungguhan melalui lamaran, sebagai tanda bahwa hati ini telah menetapkan pilihan untuk melangkah menuju kehidupan bersama. Bukan sekadar sebuah janji, melainkan niat untuk menjadikan satu sama lain sebagai tempat pulang untuk selamanya."
     },
     {
-      year: "Desember 2026",
+      year: "Desember|2026",
       icon: "∞",
       title: "Pernikahan",
       text: "Dan akhirnya, tibalah kami pada hari yang akan menjadi awal dari perjalanan baru. Dengan cinta, doa, dan restu dari orang-orang terkasih, kami akan mengikat janji dalam pernikahan, menyatukan dua hati dalam satu ikatan dan melangkah bersama menuju masa depan. Karena setelah sekian banyak cerita, kami akhirnya sampai pada satu keputusan: untuk saling memilih, hari ini, esok, dan selamanya."

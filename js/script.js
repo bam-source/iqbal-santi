@@ -62,8 +62,6 @@
      ============================================ */
   function setupEnvelopeOpening() {
     var envelope = document.getElementById('envelope');
-    var flap = document.getElementById('envelopeFlap');
-    var card = document.getElementById('envelopeCard');
     var seal = document.getElementById('openInvitation');
     var cover = document.getElementById('cover');
     var main = document.getElementById('mainContent');
@@ -112,6 +110,7 @@
       cover.classList.add('hidden');
       main.classList.add('visible');
       if (musicToggle) musicToggle.classList.add('active');
+      startMusic();
       return;
     }
 
@@ -224,7 +223,15 @@
     var html = '';
     CONFIG.kisahCinta.forEach(function (item, i) {
       html += '<div class="kisah-cinta-milestone reveal">';
-      html += '  <div class="kisah-cinta-year" data-icon="' + item.icon + '">' + escapeHtml(item.year) + '</div>';
+      var yearParts = item.year.split('|');
+      var yearHtml = '';
+      if (yearParts.length > 1) {
+        yearHtml = '<span class="year-month">' + escapeHtml(yearParts[0]) + '</span>' +
+                   '<span class="year-value">' + escapeHtml(yearParts[1]) + '</span>';
+      } else {
+        yearHtml = '<span class="year-value">' + escapeHtml(item.year) + '</span>';
+      }
+      html += '  <div class="kisah-cinta-year" data-icon="' + item.icon + '">' + yearHtml + '</div>';
       html += '  <h3 class="kisah-cinta-title shimmer-text">' + escapeHtml(item.title) + '</h3>';
       html += '  <div class="kisah-cinta-divider"></div>';
       html += '  <p class="kisah-cinta-text">' + escapeHtml(item.text) + '</p>';
@@ -298,9 +305,6 @@
     }
   }
 
-  /* ============================================
-     LOVE STORY
-     ============================================ */
   /* ============================================
      EVENTS
      ============================================ */
@@ -542,6 +546,7 @@
       carouselIndex = index;
       var gap = 16;
       var slide = track.querySelector('.guestbook-slide');
+      if (!slide) return;
       var slideWidth = slide.offsetWidth;
       var offset = index * (slideWidth + gap);
       track.style.transform = 'translateX(-' + offset + 'px)';
@@ -655,9 +660,6 @@
     });
   }
 
-  /* ============================================
-     CLOSING
-     ============================================ */
   /* ============================================
      FLOATING PETALS
      ============================================ */
@@ -819,8 +821,6 @@
     if (prefersReducedMotion) return;
 
     var botanicalBg = document.querySelectorAll('.botanical-bg');
-    var botanicalMid = document.querySelectorAll('.botanical-mid');
-    var botanicalFg = document.querySelectorAll('.botanical-fg');
     var floralHero = document.querySelectorAll('.floral--hero');
     var floralSupporting = document.querySelectorAll('.floral--supporting');
 
@@ -829,7 +829,6 @@
     var ticking = false;
 
     function updateParallax() {
-      var scrollY = window.pageYOffset;
       var windowHeight = window.innerHeight;
 
       // Background layer - very slow
@@ -910,6 +909,10 @@
     function updateProgress() {
       var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight <= 0) {
+        progressBar.style.width = '0%';
+        return;
+      }
       var progress = (scrollTop / docHeight) * 100;
       progressBar.style.width = progress + '%';
     }
