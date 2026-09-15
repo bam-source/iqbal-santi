@@ -1530,8 +1530,8 @@ blockquote {
 }
 
 .couple-photo {
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 280px;
   border-radius: 12px;
   background: var(--powder-blue);
   display: flex;
@@ -2483,8 +2483,13 @@ blockquote {
   }
 
   .couple-photo {
-    width: 180px;
-    height: 180px;
+    width: 350px;
+    height: 490px;
+  }
+
+  .couple-photo-floral {
+    width: 44px;
+    height: 44px;
   }
 
   .countdown-number {
@@ -2567,8 +2572,13 @@ blockquote {
   }
 
   .couple-photo {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 420px;
+  }
+
+  .couple-photo-floral {
+    width: 44px;
+    height: 44px;
   }
 
   .couple-heart {
