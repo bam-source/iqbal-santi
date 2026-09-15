@@ -37,6 +37,12 @@
   <!-- Sparkle/twinkle background -->
   <div class="sparkle-container" id="sparkleContainer" aria-hidden="true"></div>
 
+  <!-- Floating leaves -->
+  <div class="floating-leaves" id="floatingLeaves" aria-hidden="true"></div>
+
+  <!-- Bokeh lights -->
+  <div class="bokeh-container" id="bokehContainer" aria-hidden="true"></div>
+
   <!-- ==================== MUSIC TOGGLE ==================== -->
   <button class="music-toggle" id="musicToggle" aria-label="Nyalakan/Matikan Musik" title="Nyalakan/Matikan Musik">
     <svg class="music-icon music-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -273,7 +279,7 @@
                 <circle cx="100" cy="15" r="4" fill="#D4C490" opacity="0.6"/>
               </svg>
             </div>
-            <h2 class="doa-pembuka-salam" id="pembukaSalam"></h2>
+            <h2 class="doa-pembuka-salam shimmer-text" id="pembukaSalam"></h2>
             <p class="doa-pembuka-text" id="pembukaText"></p>
             <p class="doa-pembuka-names" id="pembukaNames"></p>
             <div class="pembuka-ornament pembuka-ornament--bottom" aria-hidden="true">
@@ -289,6 +295,11 @@
 
     <!-- ==================== MEMPELAI SECTION ==================== -->
     <section id="mempelai" class="section section--mempelai" aria-label="Mempelai">
+      <!-- Curtain reveal animation -->
+      <div class="curtain" aria-hidden="true">
+        <div class="curtain-left"></div>
+        <div class="curtain-right"></div>
+      </div>
       <!-- Floral framing - Level 1 Hero (ENHANCED) -->
       <div class="section-florals" aria-hidden="true">
         <!-- Top left floral cluster -->
@@ -389,7 +400,7 @@
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
           </div>
-          <p class="section-label">Mempelai</p>
+          <p class="section-label shimmer-text">Mempelai</p>
           <div class="floral-divider" aria-hidden="true">
             <svg viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 15 Q50 0 100 15 Q150 30 200 15" stroke="#D4C490" stroke-width="1.5" fill="none"/>
@@ -442,8 +453,8 @@
               </svg>
             </div>
             <p class="couple-role">Mempelai Pria</p>
-            <h3 class="couple-name" id="groomFullName"></h3>
-            <p class="couple-quote" id="groomQuote"></p>
+            <h3 class="couple-name shimmer-text" id="groomFullName"></h3>
+            <p class="couple-quote shimmer-text" id="groomQuote"></p>
           </div>
 
           <div class="couple-heart reveal" aria-hidden="true">
@@ -495,8 +506,8 @@
               </svg>
             </div>
             <p class="couple-role">Mempelai Wanita</p>
-            <h3 class="couple-name" id="brideFullName"></h3>
-            <p class="couple-quote" id="brideQuote"></p>
+            <h3 class="couple-name shimmer-text" id="brideFullName"></h3>
+            <p class="couple-quote shimmer-text" id="brideQuote"></p>
           </div>
         </div>
       </div>
@@ -519,7 +530,7 @@
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
           </div>
-          <p class="section-label">Kisah Cinta</p>
+          <p class="section-label shimmer-text">Kisah Cinta</p>
           <div class="floral-divider" aria-hidden="true">
             <svg viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 15 Q50 0 100 15 Q150 30 200 15" stroke="#D4C490" stroke-width="1.5" fill="none"/>
@@ -573,7 +584,7 @@
               <line x1="3" y1="10" x2="21" y2="10"/>
             </svg>
           </div>
-          <p class="section-label">Waktu & Acara</p>
+          <p class="section-label shimmer-text">Waktu & Acara</p>
           <div class="floral-divider" aria-hidden="true">
             <svg viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 15 Q50 0 100 15 Q150 30 200 15" stroke="#D4C490" stroke-width="1.5" fill="none"/>
@@ -584,7 +595,7 @@
 
         <!-- Countdown Timer -->
         <div class="countdown-section reveal">
-          <p class="countdown-subtitle" id="countdownLabel"></p>
+          <p class="countdown-subtitle shimmer-text" id="countdownLabel"></p>
           <div class="countdown-grid">
             <div class="countdown-box">
               <span class="countdown-number" id="countDays">0</span>
@@ -620,7 +631,7 @@
                 <path d="M2 12l10 5 10-5"/>
               </svg>
             </div>
-            <h3 class="event-title">Akad Nikah</h3>
+            <h3 class="event-title shimmer-text">Akad Nikah</h3>
           </div>
           <div class="event-details">
             <div class="event-detail">
@@ -671,7 +682,7 @@
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
               </svg>
             </div>
-            <h3 class="event-title">Intimate Lunch</h3>
+            <h3 class="event-title shimmer-text">Intimate Lunch</h3>
           </div>
           <div class="event-details">
             <div class="event-detail">
@@ -793,8 +804,7 @@
               <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
             </svg>
           </div>
-          <p class="section-label">Hadiah Pernikahan</p>
-          <p class="section-subtitle">Terima kasih atas doa dan hadiah yang diberikan</p>
+          <p class="section-label shimmer-text">Hadiah Pernikahan</p>
           <div class="floral-divider" aria-hidden="true">
             <svg viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 15 Q50 0 100 15 Q150 30 200 15" stroke="#D4C490" stroke-width="1.5" fill="none"/>
@@ -841,7 +851,7 @@
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
           </div>
-          <p class="section-label">Ucapan & Doa</p>
+          <p class="section-label shimmer-text">Ucapan & Doa</p>
           <div class="floral-divider" aria-hidden="true">
             <svg viewBox="0 0 200 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 15 Q50 0 100 15 Q150 30 200 15" stroke="#D4C490" stroke-width="1.5" fill="none"/>

@@ -34,6 +34,8 @@
     populateGuestbook();
     createFloatingPetals();
     createSparkles();
+    createLeaves();
+    createBokeh();
     setupEnvelopeOpening();
     setupMusicToggle();
     setupScrollReveal();
@@ -42,6 +44,7 @@
     setupPhotoReveal();
     setupCardReveal();
     setupSectionReveal();
+    setupCurtainReveal();
   }
 
   /* ============================================
@@ -222,7 +225,7 @@
     CONFIG.kisahCinta.forEach(function (item, i) {
       html += '<div class="kisah-cinta-milestone reveal">';
       html += '  <div class="kisah-cinta-year" data-icon="' + item.icon + '">' + escapeHtml(item.year) + '</div>';
-      html += '  <h3 class="kisah-cinta-title">' + escapeHtml(item.title) + '</h3>';
+      html += '  <h3 class="kisah-cinta-title shimmer-text">' + escapeHtml(item.title) + '</h3>';
       html += '  <div class="kisah-cinta-divider"></div>';
       html += '  <p class="kisah-cinta-text">' + escapeHtml(item.text) + '</p>';
       if (i < CONFIG.kisahCinta.length - 1) {
@@ -232,7 +235,7 @@
     });
 
     if (CONFIG.kisahCintaClosing) {
-      html += '<p class="kisah-cinta-closing reveal">' + escapeHtml(CONFIG.kisahCintaClosing) + '</p>';
+      html += '<p class="kisah-cinta-closing reveal shimmer-text">' + escapeHtml(CONFIG.kisahCintaClosing) + '</p>';
     }
 
     container.innerHTML = html;
@@ -369,7 +372,7 @@
         html += '      </svg>';
       }
       html += '    </div>';
-      html += '    <h3 class="gift-card-bank">' + escapeHtml(gift.bank) + '</h3>';
+      html += '    <h3 class="gift-card-bank shimmer-text">' + escapeHtml(gift.bank) + '</h3>';
       html += '  </div>';
       html += '  <div class="gift-card-body">';
       html += '    <p class="gift-card-number">' + escapeHtml(gift.number) + '</p>';
@@ -699,6 +702,50 @@
     container.innerHTML = html;
   }
 
+  function createLeaves() {
+    var container = document.getElementById('floatingLeaves');
+    if (!container) return;
+
+    var leafCount = 15;
+    var html = '';
+
+    for (var i = 0; i < leafCount; i++) {
+      var left = (Math.random() * 95 + 2) + '%';
+      var size = (12 + Math.random() * 10) + 'px';
+      var dur = (15 + Math.random() * 10) + 's';
+      var delay = (Math.random() * 15) + 's';
+      var color = Math.random() > 0.5 ? '#8FA99E' : '#D4C490';
+
+      html += '<div class="leaf" style="left:' + left + ';width:' + size + ';height:' + size + ';animation-duration:' + dur + ';animation-delay:' + delay + '">';
+      html += '<svg viewBox="0 0 24 24" fill="' + color + '" xmlns="http://www.w3.org/2000/svg">';
+      html += '<path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1.24-2.91C10 18 12 14 17 8z"/>';
+      html += '</svg></div>';
+    }
+
+    container.innerHTML = html;
+  }
+
+  function createBokeh() {
+    var container = document.getElementById('bokehContainer');
+    if (!container) return;
+
+    var bokehCount = 12;
+    var colors = ['#D4C490', '#E8B4B4', '#B8D4E3', '#8FA99E'];
+    var html = '';
+
+    for (var i = 0; i < bokehCount; i++) {
+      var left = (Math.random() * 100) + '%';
+      var top = (Math.random() * 100) + '%';
+      var size = (40 + Math.random() * 60) + 'px';
+      var dur = (8 + Math.random() * 6) + 's';
+      var color = colors[Math.floor(Math.random() * colors.length)];
+
+      html += '<div class="bokeh" style="left:' + left + ';top:' + top + ';width:' + size + ';height:' + size + ';background:' + color + ';animation-duration:' + dur + '"></div>';
+    }
+
+    container.innerHTML = html;
+  }
+
   /* ============================================
      SCROLL REVEAL
      ============================================ */
@@ -999,6 +1046,22 @@
         observer.observe(el);
       });
     });
+  }
+
+  function setupCurtainReveal() {
+    var curtain = document.querySelector('.curtain');
+    if (!curtain) return;
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          curtain.classList.add('open');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(curtain.parentElement);
   }
 
 })();

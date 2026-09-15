@@ -191,6 +191,57 @@ blockquote {
   justify-content: center;
   margin: 0 auto var(--space-md);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: icon-pulse 3s ease-in-out infinite;
+}
+
+@keyframes icon-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* ============================================
+   CURTAIN REVEAL ANIMATION
+   ============================================ */
+.curtain {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.curtain-left,
+.curtain-right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(180deg, var(--ivory) 0%, var(--very-light-blue) 100%);
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.curtain-left {
+  left: 0;
+  transform: translateX(0);
+}
+
+.curtain-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.curtain.open .curtain-left {
+  transform: translateX(-100%);
+}
+
+.curtain.open .curtain-right {
+  transform: translateX(100%);
 }
 
 .section-icon--blue {
@@ -1049,6 +1100,98 @@ blockquote {
     opacity: var(--op, 0.5);
     transform: scale(1);
   }
+}
+
+/* ============================================
+   FLOATING LEAVES
+   ============================================ */
+.floating-leaves {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.leaf {
+  position: absolute;
+  opacity: 0.35;
+  animation: leaf-float linear infinite;
+}
+
+.leaf svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes leaf-float {
+  0% {
+    transform: translateY(-5vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(50vh) translateX(30px) rotate(180deg);
+  }
+  90% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(105vh) translateX(-20px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   BOKEH LIGHTS
+   ============================================ */
+.bokeh-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.bokeh {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.15;
+  animation: bokeh-drift ease-in-out infinite alternate;
+}
+
+@keyframes bokeh-drift {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  100% {
+    transform: translateY(-30px) translateX(20px) scale(1.1);
+  }
+}
+
+/* ============================================
+   SHIMMER TEXT
+   ============================================ */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--deep-blue-gray) 0%,
+    var(--champagne-gold) 50%,
+    var(--deep-blue-gray) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
 /* ---------- Floral Motion Keyframes ---------- */
