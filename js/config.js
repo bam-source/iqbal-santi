@@ -61,14 +61,14 @@ const CONFIG = {
   gifts: [
     {
       bank: "Bank Central Asia (BCA)",
-      number: "1234 5678 9012 3456",
+      number: "1672359702",
       name: "Santi Oktaviani",
       type: "rekening",
       icon: "bank"
     },
     {
       bank: "Bank Syariah Indonesia (BSI)",
-      number: "7123 4567 8901",
+      number: "7103886486",
       name: "Iqbal Permana",
       type: "rekening",
       icon: "bank"
